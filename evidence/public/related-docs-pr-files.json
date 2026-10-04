@@ -1,0 +1,12 @@
+[
+  {
+    "filename": "content/docs/ai/x402.mdx",
+    "patchSha256": "2632d71a6446a4322cdcb0fc8d2259f4fb7884b98980f8edd097f55c1d193d85",
+    "observedEffect": "Example-version clarification in source guide and reader feed; no declaration implementation changes."
+  },
+  {
+    "filename": "public/llms-full.txt",
+    "patchSha256": "a6ec6546cbe5da28f99e5c40f4438bebd8148c9df4a9a67a5976f86305967267",
+    "observedEffect": "Example-version clarification in source guide and reader feed; no declaration implementation changes."
+  }
+]

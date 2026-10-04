@@ -1,0 +1,40 @@
+{
+  "name": "@x402/express",
+  "version": "2.28.0",
+  "repository": "https://github.com/x402-foundation/x402",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint . --ext .ts --fix",
+    "test": "vitest run --coverage",
+    "build": "tsup && node ../../../scripts/mirror-cjs-dts.mjs",
+    "start": "tsx --env-file=.env index.ts",
+    "watch": "tsc --watch",
+    "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+    "lint:check": "eslint . --ext .ts",
+    "test:watch": "vitest",
+    "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\""
+  },
+  "dist": {
+    "shasum": "cfc3b298359e5fb6ff26f57f553d8ddf6969190a",
+    "tarball": "https://registry.npmjs.org/@x402/express/-/express-2.28.0.tgz",
+    "fileCount": 8,
+    "integrity": "sha512-/94ZT89ce9Y92TgAxMuBQiS32BbvZOh0ZziMxTR8js2dbroEZ8po5guayy8zHOG79/x0p5GHJ/yoUUC4faMnvA==",
+    "signatures": [
+      {
+        "sig": "MEYCIQDlApaDXsVPa/4ZvMMGKoadP3K89bkhu7/+Mf84HsK/HwIhAMjPQWbMoHcLJE9qLvb8+v1keeROpyDKI7eB17+JgN8T",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEUCIF0Ewgh/RFxYNnB4kQ5c7ESCsVh0S9CUy1fCtVhU1Jd9AiEAxwdyuZNFCL+leZszB63FO0jSwwii7Eqs9cuhDYtOEmA=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@x402%2fexpress@2.28.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 113944
+  }
+}

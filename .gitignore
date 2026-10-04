@@ -1,0 +1,27 @@
+node_modules/
+.npm-cache/
+.npm-downloads/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+reproduction/
+.release-private/
+.release-checkouts/
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+evidence/*
+!evidence/public/
+
+# Historical local reports/internal implementation notes retained, not released.
+FINAL-REPORT.md
+FINAL-INTEGRATION-REPORT.md
+FINAL-TECHNICAL-GATE.md
+PRE-INTEGRATION-BASELINE.md
+spec/
+
+# Mutable local approval/commit receipt; publish only on a separate owner decision.
+PUBLIC-RELEASE-GATE.md

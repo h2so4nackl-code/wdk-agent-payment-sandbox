@@ -1,0 +1,14 @@
+[
+  {
+    "sha": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "repository": "actions/checkout",
+    "ref": "v6",
+    "type": "commit"
+  },
+  {
+    "sha": "249970729cb0ef3589644e2896645e5dc5ba9c38",
+    "repository": "actions/setup-node",
+    "ref": "v6",
+    "type": "commit"
+  }
+]

@@ -1,0 +1,33 @@
+name: Local sandbox conformance
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  conformance:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-26.04, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6, resolved 2026-10-04
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6, resolved 2026-10-04
+        with:
+          node-version: '24.16.0'
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm ci --prefix integrations/wdk --ignore-scripts --omit=optional
+      - run: npm test
+      - run: npm run test:official
+      - run: npm run typecheck
+      - run: npm run typecheck:adapter
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run scan:secrets
+      - run: npm run scan:test-material
+      - name: Observe upstream direct declaration regression (expected diagnostic)
+        run: node scripts/upstream-direct-evidence.mjs

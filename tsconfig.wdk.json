@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "rootDir": ".", "outDir": "dist/wdk", "skipLibCheck": true },
+  "include": ["integrations/wdk/wdk-x402-client-signer.ts", "integrations/wdk/signer-adapter-compatibility.ts"]
+}

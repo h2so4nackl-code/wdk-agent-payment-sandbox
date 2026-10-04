@@ -1,0 +1,35 @@
+{
+  "name": "@tetherto/wdk",
+  "version": "1.0.0-beta.18",
+  "repository": {
+    "url": "git+https://github.com/tetherto/wdk.git",
+    "type": "git"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "standard",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "lint:fix": "standard --fix",
+    "build:types": "tsc",
+    "test:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+  },
+  "dist": {
+    "shasum": "e75e38d409f3b795594423dd7390434b8ab39294",
+    "tarball": "https://registry.npmjs.org/@tetherto/wdk/-/wdk-1.0.0-beta.18.tgz",
+    "fileCount": 33,
+    "integrity": "sha512-dV9L3H6+KqZgjkD4WtM4FiNWSWJ3gxloRoa6veG4a2WkHs+VBHF4W/exE4cxjdVlEFKJz0G8j2tDSpelyBXiJw==",
+    "signatures": [
+      {
+        "sig": "MEQCIEjVVUf7gU+ngm97NZAWaZt6E17HXxmbl0vbZEwU8GL6AiBtZZOXS9yQK7YWXxn6y85bDXMLf6ect+YnsTRreF4qgA==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@tetherto%2fwdk@1.0.0-beta.18",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 219278
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "wdk-agent-payment-sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Credential-free security conformance sandbox for agentic WDK payments",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=24.16.0 <25"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "demo": "node src/demo.mjs",
+    "build": "node scripts/build.mjs",
+    "typecheck": "node scripts/typecheck.mjs",
+    "lint": "node scripts/lint.mjs",
+    "scan:secrets": "node scripts/secret-scan.mjs",
+    "test:wdk": "node integrations/wdk/conformance.mjs",
+    "test:official": "node --test integrations/wdk/*.test.mjs",
+    "test:all": "node --test tests/*.test.mjs integrations/wdk/*.test.mjs",
+    "typecheck:signer": "tsc --noEmit --strict --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2023 integrations/wdk/signer-compatibility.ts",
+    "audit:online": "node scripts/audit-online.mjs",
+    "integration:evidence": "node scripts/integration-evidence.mjs",
+    "evidence": "node scripts/evidence.mjs",
+    "reproduce": "node scripts/reproduce.mjs",
+    "reproduce:official": "node scripts/reproduce-official.mjs",
+    "seed-cache": "node scripts/seed-compiler-cache.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run build && npm test && npm run scan:secrets",
+    "typecheck:adapter": "tsc --noEmit -p tsconfig.wdk.json",
+    "typecheck:upstream-direct": "tsc --noEmit --strict --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2023 integrations/wdk/upstream-direct-signer-compatibility.ts",
+    "scan:test-material": "node scripts/scan-test-material.mjs",
+    "acquire:upstream": "node scripts/acquire-upstream.mjs",
+    "audit:publication": "node scripts/publication-audit.mjs",
+    "reproduce:git": "node scripts/reproduce-git.mjs"
+  },
+  "devDependencies": {
+    "typescript": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz"
+  }
+}

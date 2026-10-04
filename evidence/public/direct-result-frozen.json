@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-10-04T12:52:32.350Z",
+  "exitCode": 2,
+  "upstreamDirectTypescript": "FAIL",
+  "expectedFailureReproduced": true,
+  "fixtureSha256": "0e92083aba8854982feacc03fa00fa0a9390d0478a2ff7b7f7dddce12c37cf49"
+}

@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/tetherto/wdk-docs/pull/280",
+  "state": "open",
+  "title": "Clarify x402 example package versions",
+  "head": "7ca4c592d6696520e7cbe9d9a7d04f1b0ecfbed4",
+  "base": "3017956cedcdc099ddd0fb97698b89cfb492bae7",
+  "observedScope": "Clarifies example pairing beta.19 with x402 2.26.0; does not change published account declarations. No behavior of that older pair was tested by this project."
+}

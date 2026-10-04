@@ -1,0 +1,5 @@
+# Curated publication evidence
+
+This directory deliberately publishes only privacy-reviewed projections and measured technical results, not machine-specific raw logs or dependency archives. runtime-tests.txt records the 136-test accepted run; runtime-contracts.json identifies overlapping subsets; technical-summary.json records command exits. The original direct fixture and TS2322 diagnostic are unchanged; fixture hash and frozen negative result are included. Registry metadata is a selected technical projection (identity/version/repository/license/scripts/dist), with publisher/maintainer personal information omitted; registry public signature keys are not private credentials. The six signatures still verify. Advisory reports and installed-license inventory reflect actual runs, not guarantees against unknown risks.
+
+Release snapshot reproduction and local commits are recorded separately. Raw historical evidence is retained privately outside this tracked directory and can be regenerated; it is not silently represented as public. Nothing here contains real wallet material, a funded account or endorsed financial deployment.

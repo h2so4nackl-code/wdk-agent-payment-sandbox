@@ -1,0 +1,3 @@
+integrations/wdk/upstream-direct-signer-compatibility.ts(5,3): error TS2322: Type 'WalletAccountEvm' is not assignable to type 'ClientEvmSigner'.
+  Types of property 'address' are incompatible.
+    Type 'string' is not assignable to type '`0x${string}`'.

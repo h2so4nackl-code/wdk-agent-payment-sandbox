@@ -1,0 +1,72 @@
+{
+  "node": "v24.16.0",
+  "platform": "win32",
+  "locks": {
+    "package-lock.json": "db6bc742ad8d2dc6c47c28b473291df209cc9a262b2b9b41a925b0f176dac3d5",
+    "integrations/wdk/package-lock.json": "89b019e6d63940715a0852290ef25ff07fd6b7720f1f19ad700e4e6c20739ab0"
+  },
+  "results": [
+    {
+      "command": "npm run typecheck",
+      "startedAt": "2026-10-04T12:52:09.537Z",
+      "completedAt": "2026-10-04T12:52:14.011Z",
+      "exitCode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "npm run lint",
+      "startedAt": "2026-10-04T12:52:14.012Z",
+      "completedAt": "2026-10-04T12:52:16.759Z",
+      "exitCode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "npm run build",
+      "startedAt": "2026-10-04T12:52:16.759Z",
+      "completedAt": "2026-10-04T12:52:20.693Z",
+      "exitCode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "npm run test:all",
+      "startedAt": "2026-10-04T12:52:20.693Z",
+      "completedAt": "2026-10-04T12:52:24.294Z",
+      "exitCode": 0,
+      "status": "PASS",
+      "tests": 136,
+      "passed": 136
+    },
+    {
+      "command": "npm run demo",
+      "startedAt": "2026-10-04T12:52:24.295Z",
+      "completedAt": "2026-10-04T12:52:24.979Z",
+      "exitCode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "npm run test:wdk",
+      "startedAt": "2026-10-04T12:52:24.979Z",
+      "completedAt": "2026-10-04T12:52:26.183Z",
+      "exitCode": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "npm run typecheck:upstream-direct",
+      "startedAt": "2026-10-04T12:52:26.183Z",
+      "completedAt": "2026-10-04T12:52:28.558Z",
+      "exitCode": 2,
+      "status": "EXPECTED_FAIL"
+    },
+    {
+      "command": "npm run scan:secrets",
+      "startedAt": "2026-10-04T12:52:28.558Z",
+      "completedAt": "2026-10-04T12:52:29.137Z",
+      "exitCode": 0,
+      "status": "PASS"
+    }
+  ],
+  "realFunds": 0,
+  "realTransactionSignatures": 0,
+  "publicWrites": 0,
+  "scope": "Local runtime conformance and core quality; supported project strict adapter passes; isolated upstream direct declaration fixture is EXPECTED_FAIL, with raw non-zero exit retained."
+}

@@ -1,0 +1,14 @@
+{
+  "mode": "mock",
+  "externalSpendLimit": "0",
+  "dryRun": true,
+  "perTransaction": "1000000",
+  "sessionLimit": "3000000",
+  "dailyLimit": "5000000",
+  "recipients": ["mock:resource-merchant"],
+  "networks": ["sandbox:local"],
+  "assets": ["mock:USDT0"],
+  "contracts": ["mock:usdt0-contract"],
+  "requestTimeoutMs": 2000,
+  "maxStateEntries": 10000
+}

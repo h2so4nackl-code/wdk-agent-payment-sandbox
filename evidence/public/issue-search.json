@@ -1,0 +1,64 @@
+[
+  {
+    "url": "https://api.github.com/search/issues?q=repo%3Atetherto%2Fwdk%20%28ClientEvmSigner%20OR%20x402%29",
+    "total": 0,
+    "items": []
+  },
+  {
+    "url": "https://api.github.com/search/issues?q=repo%3Atetherto%2Fwdk-wallet-evm%20%28ClientEvmSigner%20OR%20x402%29",
+    "total": 1,
+    "items": [
+      {
+        "html_url": "https://github.com/tetherto/wdk-wallet-evm/pull/48",
+        "title": "Add verify/sign for typed data (EIP712)",
+        "state": "closed"
+      }
+    ]
+  },
+  {
+    "url": "https://api.github.com/search/issues?q=repo%3Atetherto%2Fwdk-wallet%20%28ClientEvmSigner%20OR%20x402%29",
+    "total": 0,
+    "items": []
+  },
+  {
+    "url": "https://api.github.com/search/issues?q=repo%3Atetherto%2Fwdk-docs%20%28ClientEvmSigner%20OR%20x402%29",
+    "total": 7,
+    "items": [
+      {
+        "html_url": "https://github.com/tetherto/wdk-docs/pull/274",
+        "title": "Release September 14-17 WDK documentation to main",
+        "state": "open"
+      },
+      {
+        "html_url": "https://github.com/tetherto/wdk-docs/pull/267",
+        "title": "Document September 14-17 WDK releases",
+        "state": "closed"
+      },
+      {
+        "html_url": "https://github.com/tetherto/wdk-docs/pull/92",
+        "title": "Add x402",
+        "state": "closed"
+      },
+      {
+        "html_url": "https://github.com/tetherto/wdk-docs/pull/129",
+        "title": "Clarify USDT0 bridge approval requirement",
+        "state": "closed"
+      },
+      {
+        "html_url": "https://github.com/tetherto/wdk-docs/pull/183",
+        "title": "Purpose-driven docs IA and wallet module chooser",
+        "state": "closed"
+      },
+      {
+        "html_url": "https://github.com/tetherto/wdk-docs/pull/93",
+        "title": "Indexer API ref update + x402 guide",
+        "state": "closed"
+      },
+      {
+        "html_url": "https://github.com/tetherto/wdk-docs/pull/95",
+        "title": "Add community contributions and promote showcase page",
+        "state": "closed"
+      }
+    ]
+  }
+]

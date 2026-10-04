@@ -1,0 +1,50 @@
+{
+  "name": "@tetherto/wdk-wallet-evm",
+  "version": "1.0.0-beta.20",
+  "repository": {
+    "url": "git://github.com/tetherto/wdk-wallet-evm.git",
+    "type": "git"
+  },
+  "license": "Apache-2.0",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error",
+      "version": ">=22.13.0"
+    }
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --testPathIgnorePatterns=/tests/integration/",
+    "lint:fix": "standard --fix",
+    "build:types": "tsc",
+    "test:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage --testPathIgnorePatterns=/tests/integration/",
+    "test:integration": "concurrently -k -s first -n \"NODE,TEST\" -c \"black,green\" --hide NODE \"npx hardhat node --network hardhat\" \"npm run test:integration-wait\"",
+    "test:integration-wait": "wait-on tcp:127.0.0.1:8545 && cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration --runInBand",
+    "test:integration:coverage": "concurrently -k -s first -n \"NODE,TEST\" -c \"black,green\" --hide NODE \"npx hardhat node --network hardhat\" \"npm run test:integration-wait:coverage\"",
+    "test:integration-wait:coverage": "wait-on tcp:127.0.0.1:8545 && cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration --coverage --runInBand"
+  },
+  "dist": {
+    "shasum": "312a7713a589a67a8626f7d6579032a97ad413a6",
+    "tarball": "https://registry.npmjs.org/@tetherto/wdk-wallet-evm/-/wdk-wallet-evm-1.0.0-beta.20.tgz",
+    "fileCount": 26,
+    "integrity": "sha512-mdDbrAU/Fjamvhi26btf92Xaq/HOO5a/CLy7ZrDRfSkciOPII2gyS4HdiJlHfGeL19AkAjADzE/yCfJoOBn5rA==",
+    "signatures": [
+      {
+        "sig": "MEUCIB5I1Zr162Czg9g/Ft0uJTINq4/i9n4kZKtvYWpMNq/xAiEAyclrrzsaDuYt4cTKBFa+8nWMXULOl627Ikk+87vBYes=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEUCIQC7Rhui/yLWlgTW3+hTJFSi44qbstSRuDvSBxI9cI5umwIgaxnB3D9DCEEXfNhPkwzRDU+vrZs/818XBhhwa4zAQY8=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@tetherto%2fwdk-wallet-evm@1.0.0-beta.20",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 162957
+  }
+}

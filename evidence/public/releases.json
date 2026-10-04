@@ -1,0 +1,24 @@
+[
+  {
+    "repository": "tetherto/wdk",
+    "tag": "v1.0.0-beta.18",
+    "published": "2026-09-14T08:09:38Z",
+    "url": "https://github.com/tetherto/wdk/releases/tag/v1.0.0-beta.18",
+    "object": {
+      "sha": "a112c38a9a2bdcf4525961812a712591d1470118",
+      "type": "commit",
+      "url": "https://api.github.com/repos/tetherto/wdk/git/commits/a112c38a9a2bdcf4525961812a712591d1470118"
+    }
+  },
+  {
+    "repository": "tetherto/wdk-wallet-evm",
+    "tag": "v1.0.0-beta.20",
+    "published": "2026-09-30T14:17:51Z",
+    "url": "https://github.com/tetherto/wdk-wallet-evm/releases/tag/v1.0.0-beta.20",
+    "object": {
+      "sha": "078babc46a22726a1fb1236e8c6a665ff48acaed",
+      "type": "commit",
+      "url": "https://api.github.com/repos/tetherto/wdk-wallet-evm/git/commits/078babc46a22726a1fb1236e8c6a665ff48acaed"
+    }
+  }
+]

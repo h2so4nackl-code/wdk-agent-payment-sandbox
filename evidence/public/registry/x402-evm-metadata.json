@@ -1,0 +1,42 @@
+{
+  "name": "@x402/evm",
+  "version": "2.28.0",
+  "repository": "https://github.com/x402-foundation/x402",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint . --ext .ts --fix",
+    "test": "vitest run --coverage",
+    "build": "tsup && node ../../../scripts/mirror-cjs-dts.mjs",
+    "start": "tsx --env-file=.env index.ts",
+    "watch": "tsc --watch",
+    "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+    "lint:check": "eslint . --ext .ts",
+    "test:watch": "vitest",
+    "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "setup:smart-accounts": "tsx scripts/setup-smart-accounts.ts"
+  },
+  "dist": {
+    "shasum": "7fe62673947296bdd43d7b1eb6994c311bfd1a53",
+    "tarball": "https://registry.npmjs.org/@x402/evm/-/evm-2.28.0.tgz",
+    "fileCount": 170,
+    "integrity": "sha512-BZuoaCKMoPQQuMTa4oibvoyI06WdCpgrzgdicUu8d+5NBMAfWb6LAmSQf1KkeiS8C+25/+2JGB4cHSL0VLGnSA==",
+    "signatures": [
+      {
+        "sig": "MEUCIQDk4ZaIVkanLhVUL0tzqsr7/+aKDOlY2L8n3N14fk1SqQIgP/ZB2UlxyL4iu0M+E41mpOktOs4qzI+8+uCJrwLsu/Y=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEYCIQDCY+WHE2ZMvG+ajqe6LlKpLcecQlIitvLtJwmf29K3sQIhAMasolVqPU3zTeusJad1FMLvOHT8lRzFr5duRMdsQWDE",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@x402%2fevm@2.28.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 4574085
+  }
+}

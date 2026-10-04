@@ -1,0 +1,3649 @@
+[
+  {
+    "path": "node_modules/@adraffy/ens-normalize",
+    "name": "@adraffy/ens-normalize",
+    "version": "1.11.1",
+    "license": "MIT",
+    "integrity": "sha512-nhCBV3quEgesuf7c7KYfperqSS14T8bYuvJ8PcLJp6znkZpFc0AuW4qBtr8eKVyPPe/8RSr7sglCWPU5eaxwKQ==",
+    "resolved": "https://registry.npmjs.org/@adraffy/ens-normalize/-/ens-normalize-1.11.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "unicode": "node derive/download.js",
+      "labels": "node validate/download-labels.js",
+      "derive": "node derive/make.js",
+      "make": "node src/make.js",
+      "validate": "node validate/make.js",
+      "test": "node test/all.js",
+      "types": "cp dist/index.d.mts dist/index.d.cts && cp dist/index.d.mts dist/index-xnf.d.mts && cp dist/index.d.mts dist/index-xnf.d.cts",
+      "build": "npm run types && npx rollup -c",
+      "rebuild": "npm run derive && npm run make && npm run validate && npm run test && npm run build",
+      "order": "node validate/dump-group-order.js save && npm run rebuild"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@noble/ciphers",
+    "name": "@noble/ciphers",
+    "version": "1.3.0",
+    "license": "MIT",
+    "integrity": "sha512-2I0gnIVPtfnMw9ee9h1dJG7tp81+8Ob3OJb3Mv37rx5L40/b0i7djjCVvGOVqc9AEIQyvyu1i6ypKdFw8R8gQw==",
+    "resolved": "https://registry.npmjs.org/@noble/ciphers/-/ciphers-1.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/noble.js",
+      "bench:compare": "node benchmark/compare.js",
+      "bench:install": "cd benchmark; npm install; npm install .. --install-links",
+      "build": "npm run build:clean; tsc && tsc -p tsconfig.cjs.json",
+      "build:release": "npx jsbt esbuild test/build",
+      "build:clean": "rm *.{js,d.ts,js.map,d.ts.map} esm/*.{js,d.ts,js.map,d.ts.map} 2> /dev/null",
+      "lint": "prettier --check 'src/**/*.{js,ts}' 'test/**/*.{js,ts,mjs}'",
+      "format": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts,mjs}'",
+      "test": "node --import ./test/esm-register.js test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read --import-map=./test/import_map.json test/index.js",
+      "test:big": "node --import ./test/esm-register.js test/crosstest.test.js slow"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@noble/curves",
+    "name": "@noble/curves",
+    "version": "1.9.7",
+    "license": "MIT",
+    "integrity": "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw==",
+    "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.9.7.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "npm run bench:install; cd test/benchmark; node secp256k1.js; node curves.js; node utils.js; node bls.js",
+      "bench:install": "cd test/benchmark; npm install; npm install ../.. --install-links",
+      "build": "tsc && tsc -p tsconfig.cjs.json",
+      "build:release": "npx jsbt esbuild test/build",
+      "build:clean": "rm {.,esm,abstract,esm/abstract}/*.{js,d.ts,d.ts.map,js.map} 2> /dev/null",
+      "lint": "prettier --check 'src/**/*.{js,ts}' 'test/*.js'",
+      "format": "prettier --write 'src/**/*.{js,ts}' 'test/*.js'",
+      "test": "node --disable-warning=ExperimentalWarning test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read test/index.js",
+      "test:coverage": "npm install --no-save c8@10.1.2 && npx c8 npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@noble/hashes",
+    "name": "@noble/hashes",
+    "version": "1.8.0",
+    "license": "MIT",
+    "integrity": "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==",
+    "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/noble.js",
+      "bench:compare": "MBENCH_DIMS='algorithm,buffer,library' node benchmark/hashes.js",
+      "bench:compare-hkdf": "MBENCH_DIMS='algorithm,length,library' node benchmark/hkdf.js",
+      "bench:compare-scrypt": "MBENCH_DIMS='iters,library' MBENCH_FILTER='async' node benchmark/scrypt.js",
+      "bench:install": "cd benchmark; npm install; npm install .. --install-links",
+      "build": "npm run build:clean; tsc && tsc -p tsconfig.cjs.json",
+      "build:clean": "rm -f *.{js,d.ts,js.map,d.ts.map} esm/*.{js,js.map,d.ts.map}",
+      "build:release": "npx jsbt esbuild test/build",
+      "lint": "prettier --check 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
+      "format": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
+      "test": "node --import ./test/esm-register.js test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read --import-map=./test/import_map.json test/index.js",
+      "test:dos": "node --import ./test/esm-register.js test/slow-dos.test.js",
+      "test:big": "node --import ./test/esm-register.js test/slow-big.test.js",
+      "test:kdf": "node --import ./test/esm-register.js test/slow-kdf.test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@noble/secp256k1",
+    "name": "@noble/secp256k1",
+    "version": "2.2.3",
+    "license": "MIT",
+    "integrity": "sha512-l7r5oEQym9Us7EAigzg30/PQAvynhMt2uoYtT3t26eGDVm9Yii5mZ5jWSWmZ/oSIR2Et0xfc6DXrG0bZ787V3w==",
+    "resolved": "https://registry.npmjs.org/@noble/secp256k1/-/secp256k1-2.2.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build": "tsc",
+      "build:min": "cd test/build; npm install; npm run terser",
+      "build:mingz": "npm run --silent build:min | gzip -c8",
+      "build:release": "npm run --silent build:min > test/build/noble-secp256k1.min.js; npm run --silent build:mingz > test/build/noble-secp256k1.min.js.gz",
+      "test": "node test/index.js",
+      "test:webcrypto": "node test/index.webcrypto.js",
+      "bench": "node test/benchmark.js",
+      "loc": "echo \"`npm run --silent build:min | wc -c` symbols `wc -l < index.ts` LOC, `npm run --silent build:mingz | wc -c`B gzipped\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@scure/base",
+    "name": "@scure/base",
+    "version": "1.2.6",
+    "license": "MIT",
+    "integrity": "sha512-g/nm5FgUa//MCj1gV09zTJTaM6KBAHqLN907YVQqf7zC49+DcO4B1so4ZX07Ef10Twr6nuqYEH9GEggFXA4Fmg==",
+    "resolved": "https://registry.npmjs.org/@scure/base/-/base-1.2.6.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node test/benchmark/index.js",
+      "build": "tsc && tsc -p tsconfig.cjs.json",
+      "build:release": "npx jsbt esbuild test/build",
+      "lint": "prettier --check index.ts",
+      "format": "prettier --write index.ts",
+      "test": "node test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read test/index.js && deno test/deno.ts"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@scure/bip32",
+    "name": "@scure/bip32",
+    "version": "1.7.0",
+    "license": "MIT",
+    "integrity": "sha512-E4FFX/N3f4B80AKWp5dP6ow+flD1LQZo/w8UnLGYZO674jS6YnYeepycOOksv+vLPSpgN35wgKgy+ybfTb2SMw==",
+    "resolved": "https://registry.npmjs.org/@scure/bip32/-/bip32-1.7.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build": "tsc && tsc -p tsconfig.cjs.json",
+      "build:release": "npx jsbt esbuild test/build",
+      "lint": "prettier --check 'index.ts' 'test/*.test.ts'",
+      "format": "prettier --write 'index.ts' 'test/*.test.ts'",
+      "test": "node test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read test/index.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@scure/bip39",
+    "name": "@scure/bip39",
+    "version": "1.6.0",
+    "license": "MIT",
+    "integrity": "sha512-+lF0BbLiJNwVlev4eKelw1WWLaiKXw7sSl8T6FvBlWkdX+94aGJ4o8XjUdlyhTCjd8c+B3KT3JfS8P0bLRNU6A==",
+    "resolved": "https://registry.npmjs.org/@scure/bip39/-/bip39-1.6.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build": "tsc && tsc -p tsconfig.cjs.json",
+      "build:release": "npx jsbt esbuild test/build",
+      "lint": "prettier --check 'src/**/*.ts' 'test/*.test.ts' 'scripts/*.js'",
+      "format": "prettier --write 'src/**/*.ts' 'test/*.test.ts' 'scripts/*.js'",
+      "test": "node test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read test/index.js",
+      "fetch-wordlist": "./scripts/fetch-wordlist.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@signinwithethereum/siwe",
+    "name": "@signinwithethereum/siwe",
+    "version": "4.2.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-CQEQhCIgN9blil1YpaGR+wvGPdsBVK6zed5DBu03s1IdbSO3kA/n7Zp+SAkZGiHy3HY6OJm1Su0/Bd33vKK6nQ==",
+    "resolved": "https://registry.npmjs.org/@signinwithethereum/siwe/-/siwe-4.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "vitest run",
+      "build": "vite build",
+      "lint": "eslint .",
+      "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@signinwithethereum/siwe-parser",
+    "name": "@signinwithethereum/siwe-parser",
+    "version": "4.2.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-GAdwNiBaRpUMTiFfPrbQ3e/RBhPbEhRRN1sZmDMLgLEZuKqKwO7V0ksVzCerE9l8HFKTNw5R/q3kPDCWJRz4zA==",
+    "resolved": "https://registry.npmjs.org/@signinwithethereum/siwe-parser/-/siwe-parser-4.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "vitest run",
+      "build": "vite build",
+      "lint": "eslint .",
+      "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+      "apg": "apg -i ./lib/siwe-abnf.txt -o ./lib/siwe-grammar --typescript"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@tetherto/wdk",
+    "name": "@tetherto/wdk",
+    "version": "1.0.0-beta.18",
+    "license": "Apache-2.0",
+    "integrity": "sha512-dV9L3H6+KqZgjkD4WtM4FiNWSWJ3gxloRoa6veG4a2WkHs+VBHF4W/exE4cxjdVlEFKJz0G8j2tDSpelyBXiJw==",
+    "resolved": "https://registry.npmjs.org/@tetherto/wdk/-/wdk-1.0.0-beta.18.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build:types": "tsc",
+      "lint": "standard",
+      "lint:fix": "standard --fix",
+      "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+      "test:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@tetherto/wdk-failover-provider",
+    "name": "@tetherto/wdk-failover-provider",
+    "version": "1.0.0-beta.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-G1KNpw11Hql7Q6Xy5oqO+8P+AkJi4QBTK4JZtZvcXmx8ze+d/lzSQSufWLE/k5YAvwJ+xDx7mRzy/teG4zaiOw==",
+    "resolved": "https://registry.npmjs.org/@tetherto/wdk-failover-provider/-/wdk-failover-provider-1.0.0-beta.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build:types": "tsc",
+      "lint": "standard",
+      "lint:fix": "standard --fix",
+      "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+      "test:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+      "test:integration": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration",
+      "test:integration:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration --coverage"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@tetherto/wdk-wallet",
+    "name": "@tetherto/wdk-wallet",
+    "version": "1.0.0-beta.21",
+    "license": "Apache-2.0",
+    "integrity": "sha512-4YESekkx7YYjzeHfdhg54LicvEEpT8PC0z4U5eH1/kpaaqqMGCaR250LjJ2EFV8UAxMPF6tbbk0fWhZGFkRvUw==",
+    "resolved": "https://registry.npmjs.org/@tetherto/wdk-wallet/-/wdk-wallet-1.0.0-beta.21.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build:types": "tsc",
+      "lint": "standard",
+      "lint:fix": "standard --fix",
+      "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+      "test:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@tetherto/wdk-wallet-evm",
+    "name": "@tetherto/wdk-wallet-evm",
+    "version": "1.0.0-beta.20",
+    "license": "Apache-2.0",
+    "integrity": "sha512-mdDbrAU/Fjamvhi26btf92Xaq/HOO5a/CLy7ZrDRfSkciOPII2gyS4HdiJlHfGeL19AkAjADzE/yCfJoOBn5rA==",
+    "resolved": "https://registry.npmjs.org/@tetherto/wdk-wallet-evm/-/wdk-wallet-evm-1.0.0-beta.20.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build:types": "tsc",
+      "lint": "standard",
+      "lint:fix": "standard --fix",
+      "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --testPathIgnorePatterns=/tests/integration/",
+      "test:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage --testPathIgnorePatterns=/tests/integration/",
+      "test:integration-wait": "wait-on tcp:127.0.0.1:8545 && cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration --runInBand",
+      "test:integration-wait:coverage": "wait-on tcp:127.0.0.1:8545 && cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/integration --coverage --runInBand",
+      "test:integration": "concurrently -k -s first -n \"NODE,TEST\" -c \"black,green\" --hide NODE \"npx hardhat node --network hardhat\" \"npm run test:integration-wait\"",
+      "test:integration:coverage": "concurrently -k -s first -n \"NODE,TEST\" -c \"black,green\" --hide NODE \"npx hardhat node --network hardhat\" \"npm run test:integration-wait:coverage\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@tetherto/wdk-wallet-evm/node_modules/@tetherto/wdk-wallet",
+    "name": "@tetherto/wdk-wallet",
+    "version": "1.0.0-beta.17",
+    "license": "Apache-2.0",
+    "integrity": "sha512-xar2qggQJEcqtzlBvZDUzg0gtq3CwDtFzbCtFLqKTg2sjFEt8o2Grbl9r/BchEiulMhlYIX4drgLZ+Yf1rR9qw==",
+    "resolved": "https://registry.npmjs.org/@tetherto/wdk-wallet/-/wdk-wallet-1.0.0-beta.17.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build:types": "tsc",
+      "lint": "standard",
+      "lint:fix": "standard --fix",
+      "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+      "test:coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@types/node",
+    "name": "@types/node",
+    "version": "22.7.5",
+    "license": "MIT",
+    "integrity": "sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==",
+    "resolved": "https://registry.npmjs.org/@types/node/-/node-22.7.5.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {},
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/core",
+    "name": "@x402/core",
+    "version": "2.28.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-Da/7zKxCKqpBoB4Msc9tFgkAv7tJTD8nG+DSSm+QdXAyJS4PQsmgVSKe17rDJTtlu0pwNbLcOje6MyQ6kaDkig==",
+    "resolved": "https://registry.npmjs.org/@x402/core/-/core-2.28.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "start": "tsx --env-file=.env index.ts",
+      "build": "tsup && node ../../scripts/mirror-cjs-dts.mjs",
+      "test": "vitest run --coverage",
+      "test:watch": "vitest",
+      "test:integration": "vitest run test/integrations",
+      "watch": "tsc --watch",
+      "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+      "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+      "lint": "eslint . --ext .ts --fix",
+      "lint:check": "eslint . --ext .ts"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/core/node_modules/zod",
+    "name": "zod",
+    "version": "3.25.76",
+    "license": "MIT",
+    "integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==",
+    "resolved": "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "clean": "git clean -xdf . -e node_modules",
+      "build": "zshy --project tsconfig.build.json",
+      "postbuild": "pnpm biome check --write .",
+      "test:watch": "pnpm vitest",
+      "test": "pnpm vitest run",
+      "bump:beta": "pnpm version \"v$(pnpm pkg get version | jq -r)-beta.$(date +%Y%m%dT%H%M%S)\"",
+      "pub:beta": "pnpm bump:beta && pnpm publish --tag next --publish-branch v4 --no-git-checks --dry-run"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/evm",
+    "name": "@x402/evm",
+    "version": "2.28.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-BZuoaCKMoPQQuMTa4oibvoyI06WdCpgrzgdicUu8d+5NBMAfWb6LAmSQf1KkeiS8C+25/+2JGB4cHSL0VLGnSA==",
+    "resolved": "https://registry.npmjs.org/@x402/evm/-/evm-2.28.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "start": "tsx --env-file=.env index.ts",
+      "build": "tsup && node ../../../scripts/mirror-cjs-dts.mjs",
+      "test": "vitest run --coverage",
+      "test:integration": "vitest run --config vitest.integration.config.ts",
+      "setup:smart-accounts": "tsx scripts/setup-smart-accounts.ts",
+      "test:watch": "vitest",
+      "watch": "tsc --watch",
+      "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+      "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+      "lint": "eslint . --ext .ts --fix",
+      "lint:check": "eslint . --ext .ts"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/evm/node_modules/zod",
+    "name": "zod",
+    "version": "3.25.76",
+    "license": "MIT",
+    "integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==",
+    "resolved": "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "clean": "git clean -xdf . -e node_modules",
+      "build": "zshy --project tsconfig.build.json",
+      "postbuild": "pnpm biome check --write .",
+      "test:watch": "pnpm vitest",
+      "test": "pnpm vitest run",
+      "bump:beta": "pnpm version \"v$(pnpm pkg get version | jq -r)-beta.$(date +%Y%m%dT%H%M%S)\"",
+      "pub:beta": "pnpm bump:beta && pnpm publish --tag next --publish-branch v4 --no-git-checks --dry-run"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/express",
+    "name": "@x402/express",
+    "version": "2.28.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-/94ZT89ce9Y92TgAxMuBQiS32BbvZOh0ZziMxTR8js2dbroEZ8po5guayy8zHOG79/x0p5GHJ/yoUUC4faMnvA==",
+    "resolved": "https://registry.npmjs.org/@x402/express/-/express-2.28.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "start": "tsx --env-file=.env index.ts",
+      "test": "vitest run --coverage",
+      "test:watch": "vitest",
+      "build": "tsup && node ../../../scripts/mirror-cjs-dts.mjs",
+      "watch": "tsc --watch",
+      "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+      "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+      "lint": "eslint . --ext .ts --fix",
+      "lint:check": "eslint . --ext .ts"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/extensions",
+    "name": "@x402/extensions",
+    "version": "2.28.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-M3SVxO8DJnx7gpok/ODQp803jr21s1XrCMholNw0hSgOVvSPRksfTZ+CUNfJwteNaHmaAxGjPelXWBhTCMD9oQ==",
+    "resolved": "https://registry.npmjs.org/@x402/extensions/-/extensions-2.28.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "start": "tsx --env-file=.env index.ts",
+      "build": "tsup && node ../../scripts/mirror-cjs-dts.mjs",
+      "test": "vitest run --coverage",
+      "test:watch": "vitest",
+      "watch": "tsc --watch",
+      "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+      "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+      "lint": "eslint . --ext .ts --fix",
+      "lint:check": "eslint . --ext .ts"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/extensions/node_modules/zod",
+    "name": "zod",
+    "version": "3.25.76",
+    "license": "MIT",
+    "integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==",
+    "resolved": "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "clean": "git clean -xdf . -e node_modules",
+      "build": "zshy --project tsconfig.build.json",
+      "postbuild": "pnpm biome check --write .",
+      "test:watch": "pnpm vitest",
+      "test": "pnpm vitest run",
+      "bump:beta": "pnpm version \"v$(pnpm pkg get version | jq -r)-beta.$(date +%Y%m%dT%H%M%S)\"",
+      "pub:beta": "pnpm bump:beta && pnpm publish --tag next --publish-branch v4 --no-git-checks --dry-run"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/@x402/fetch",
+    "name": "@x402/fetch",
+    "version": "2.28.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-kF5IjZIz/izg2TD/Zav+SVj0jtC0zBDfE7WcKCnMZWIsZcLCyL2GgvwXCn7CCSsNjpQ/z3Rz4OqTCA4AaeKySQ==",
+    "resolved": "https://registry.npmjs.org/@x402/fetch/-/fetch-2.28.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "start": "tsx --env-file=.env index.ts",
+      "test": "vitest run --coverage",
+      "test:watch": "vitest",
+      "build": "tsup && node ../../../scripts/mirror-cjs-dts.mjs",
+      "watch": "tsc --watch",
+      "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+      "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+      "lint": "eslint . --ext .ts --fix",
+      "lint:check": "eslint . --ext .ts"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/abitype",
+    "name": "abitype",
+    "version": "1.2.3",
+    "license": "MIT",
+    "integrity": "sha512-Ofer5QUnuUdTFsBRwARMoWKOH1ND5ehwYhJ3OJ/BQO+StkwQjHw0XyVh4vDttzHB7QOFhPHa/o413PJ82gU/Tg==",
+    "resolved": "https://registry.npmjs.org/abitype/-/abitype-1.2.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/accepts",
+    "name": "accepts",
+    "version": "2.0.0",
+    "license": "MIT",
+    "integrity": "sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng==",
+    "resolved": "https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks --bail test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/aes-js",
+    "name": "aes-js",
+    "version": "4.0.0-beta.5",
+    "license": "MIT",
+    "integrity": "sha512-G965FqalsNyrPqgEGON7nIx1e/OVENSgiEIzyC63haUMuvNnwIgIjMs52hlTCKhkBny7A2ORNlfY9Zu+jmGk1Q==",
+    "resolved": "https://registry.npmjs.org/aes-js/-/aes-js-4.0.0-beta.5.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "auto-build": "npm run build -- -w",
+      "build": "tsc --build ./tsconfig.esm.json",
+      "build-all": "npm run build && npm run build-commonjs",
+      "build-clean": "npm run clean && npm run build-all",
+      "build-commonjs": "tsc --build ./tsconfig.commonjs.json && cp ./package-commonjs.json ./lib.commonjs/package.json",
+      "clean": "rm -rf lib.commonjs lib.esm && cp -r misc/basedirs/* .",
+      "test-commonjs": "mocha ./lib.commonjs/tests.js",
+      "test-esm": "mocha ./lib.esm/tests.js",
+      "test": "npm run test-commonjs && npm run test-esm"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ajv",
+    "name": "ajv",
+    "version": "8.20.0",
+    "license": "MIT",
+    "integrity": "sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA==",
+    "resolved": "https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "eslint": "eslint \"lib/**/*.ts\" \"spec/**/*.*s\" --ignore-pattern spec/JSON-Schema-Test-Suite",
+      "prettier:write": "prettier --write \"./**/*.{json,yaml,js,ts}\"",
+      "prettier:check": "prettier --list-different \"./**/*.{json,yaml,js,ts}\"",
+      "test-spec": "cross-env TS_NODE_PROJECT=spec/tsconfig.json mocha -r ts-node/register \"spec/**/*.spec.{ts,js}\" -R dot",
+      "test-codegen": "nyc cross-env TS_NODE_PROJECT=spec/tsconfig.json mocha -r ts-node/register 'spec/codegen.spec.ts' -R spec",
+      "test-debug": "npm run test-spec -- --inspect-brk",
+      "test-cov": "nyc npm run test-spec",
+      "rollup": "rm -rf bundle && rollup -c",
+      "bundle": "rm -rf bundle && node ./scripts/bundle.js ajv ajv7 ajv7 && node ./scripts/bundle.js 2019 ajv2019 ajv2019 && node ./scripts/bundle.js 2020 ajv2020 ajv2020 && node ./scripts/bundle.js jtd ajvJTD ajvJTD",
+      "build": "rm -rf dist && tsc && cp -r lib/refs dist && rm dist/refs/json-schema-2019-09/index.ts && rm dist/refs/json-schema-2020-12/index.ts && rm dist/refs/jtd-schema.ts",
+      "json-tests": "rm -rf spec/_json/*.js && node scripts/jsontests",
+      "test-karma": "karma start",
+      "test-browser": "rm -rf .browser && npm run bundle && scripts/prepare-tests && karma start",
+      "test-all": "npm run test-cov",
+      "test": "npm run json-tests && npm run prettier:check && npm run eslint && npm link && npm link --legacy-peer-deps ajv && npm run test-cov",
+      "test-ci": "AJV_FULL_TEST=true npm test",
+      "prepublish": "npm run build",
+      "benchmark": "npm i && npm run build && npm link && cd ./benchmark && npm link --legacy-peer-deps ajv && npm i && node ./jtd",
+      "docs:dev": "./scripts/prepare-site && vuepress dev docs",
+      "docs:build": "./scripts/prepare-site && vuepress build docs"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/apg-js",
+    "name": "apg-js",
+    "version": "4.4.0",
+    "license": "BSD-2-Clause",
+    "integrity": "sha512-fefmXFknJmtgtNEXfPwZKYkMFX4Fyeyz+fNF6JWp87biGOPslJbCBVU158zvKRZfHBKnJDy8CMM40oLFGkXT8Q==",
+    "resolved": "https://registry.npmjs.org/apg-js/-/apg-js-4.4.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "cat ./dist/desc.txt",
+      "apg": "./bin/apg.sh",
+      "regen": "./bin/a.sh && ./bin/b.sh && ./bin/c.sh && ./bin/b.sh  && ./bin/d.sh",
+      "apg-conv": "./bin/apg-conv.sh",
+      "bundle-apg-conv-api": "./bin/apg-conv-api-bundle.sh",
+      "bundle-apg-lib": "./bin/apg-lib-bundle.sh",
+      "bundle-apg-api": "./bin/apg-api-bundle.sh",
+      "bundle-apg-exp": "./bin/apg-exp-bundle.sh",
+      "bundle-apg-lib-css": "./dev/apg-lib-bundle-css.sh",
+      "docco": "docco -l classic index.md README.md LICENSE.md ./src/apg/*.js ./src/apg-api/*.js ./src/apg-conv/*.js ./src/apg-conv-api/*.js ./src/apg-exp/*.js ./src/apg-lib/*.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/b4a",
+    "name": "b4a",
+    "version": "1.9.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-dpfcF9fDNR6++cthXR67iyhgqWy9CBouAvIWhIntzBG6cvK/cnIPiZQjBwi/ZqjjBEDGfoNDtmB0kTjroOJ3pQ==",
+    "resolved": "https://registry.npmjs.org/b4a/-/b4a-1.9.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.mjs",
+      "test:node": "brittle-node --coverage test.mjs"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-abort",
+    "name": "bare-abort",
+    "version": "2.0.13",
+    "license": "Apache-2.0",
+    "integrity": "sha512-zdc8l88eB11Jsz5rDd6sCAgv2kUFXgdrZWoMlgU6JMkfAi1/uuGFC3IEHswKbIRQTk5H3T5CMuechsXYxiaHlQ==",
+    "resolved": "https://registry.npmjs.org/bare-abort/-/bare-abort-2.0.13.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-abort-controller",
+    "name": "bare-abort-controller",
+    "version": "1.1.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-wk+JZGZEjm7RqaBAU1KuT8TxYYz7h/xxC7+4IVuDZFqK4dGqwrJ/1/yR8hNiSyaAAVHTTFNBJPH4Rzu+rI3IAg==",
+    "resolved": "https://registry.npmjs.org/bare-abort-controller/-/bare-abort-controller-1.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-addon-resolve",
+    "name": "bare-addon-resolve",
+    "version": "1.10.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-F/SD2du8keuYSb4xipnGz5j2E6yhNdHA8ZVxtHae6h2uOrpBIjjbhXvjzKZbr5XUOzqBzh/i8GVFycj2DlFQIA==",
+    "resolved": "https://registry.npmjs.org/bare-addon-resolve/-/bare-addon-resolve-1.10.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-ansi-escapes",
+    "name": "bare-ansi-escapes",
+    "version": "2.2.3",
+    "license": "Apache-2.0",
+    "integrity": "sha512-02ES4/E2RbrtZSnHJ9LntBhYkLA6lPpSEeP8iqS3MccBIVhVBlEmruF1I7HZqx5Q8aiTeYfQVeqmrU9YO2yYoQ==",
+    "resolved": "https://registry.npmjs.org/bare-ansi-escapes/-/bare-ansi-escapes-2.2.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-assert",
+    "name": "bare-assert",
+    "version": "1.3.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-tF3A1xa5WHzOwn2Y6Pm+mV1NGOztWUKyUQycmtMCnIcEx/0xv5MMgv2qerXQVvhkv6IZJNaEbiGBJNFD6RmunA==",
+    "resolved": "https://registry.npmjs.org/bare-assert/-/bare-assert-1.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-async-hooks",
+    "name": "bare-async-hooks",
+    "version": "0.0.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-xNfGwUobaomCGMGAqohAekS3uMCj+4tvI4AoOaJnO7NfpN+dvFdkC5xkeQtmZzs2vxf2TR5J6i5FDd1ImCZERw==",
+    "resolved": "https://registry.npmjs.org/bare-async-hooks/-/bare-async-hooks-0.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-broadcast-channel",
+    "name": "bare-broadcast-channel",
+    "version": "0.2.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-5D3s9I/SeOelkJkfFyycRtpHKeaGat+RYlao3UWT8SV6c/CzOACZmLftD8Zz2WvjmMulXsGotumm0clzfLD+Fg==",
+    "resolved": "https://registry.npmjs.org/bare-broadcast-channel/-/bare-broadcast-channel-0.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-buffer",
+    "name": "bare-buffer",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-cIjZnSO+y89ykVX9x96OVnA6tGORBn7vGJ/e3PCbBHMEyfMNG/ixzOS0lLa6saMlWcs69bSKjxFyDwjK152OMg==",
+    "resolved": "https://registry.npmjs.org/bare-buffer/-/bare-buffer-3.7.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-bundle",
+    "name": "bare-bundle",
+    "version": "1.11.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-msaGQLaojz+EszDhf0qvCTmVWgJFSqbC5bUmEb9AKyVeglmJpx1EbCGqQTiXycCV7oA++MYqTagh/YdIZ//bmQ==",
+    "resolved": "https://registry.npmjs.org/bare-bundle/-/bare-bundle-1.11.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-channel",
+    "name": "bare-channel",
+    "version": "5.3.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-W42Pkl/IjfkIVObQnixidRThST6ZcqY0u6AMTLb2+Jc/enBVsXPxzmyhEDoQjNNYi4WBGkOG7YHR4X46Ah9xfA==",
+    "resolved": "https://registry.npmjs.org/bare-channel/-/bare-channel-5.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-console",
+    "name": "bare-console",
+    "version": "6.2.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-qQ+Vasa3NwNdVDcUWKIIEG5p7MKO7uABcV/xBR9MDwQg3QklC5ayemaHzBa/ER4h6TKN2PRQN5IppNwUAMtb8Q==",
+    "resolved": "https://registry.npmjs.org/bare-console/-/bare-console-6.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-crypto",
+    "name": "bare-crypto",
+    "version": "1.15.4",
+    "license": "Apache-2.0",
+    "integrity": "sha512-4luuiLnxIJvM7ZyyW6pXbaaGoQDZcIkfcVZrPzJ3oIpdi2UIP37dROmzBWqI2lnrzfKoQlKWM8ryHmyG2svViw==",
+    "resolved": "https://registry.npmjs.org/bare-crypto/-/bare-crypto-1.15.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-debug-log",
+    "name": "bare-debug-log",
+    "version": "2.0.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-Vi42PkMQsNV9PUpx2Gl1hikshx5O9FzMJ6o9Nnopseg7qLBBK7Nl31d0RHcfwLEAfmcPApytpc0ZFfq68u22FQ==",
+    "resolved": "https://registry.npmjs.org/bare-debug-log/-/bare-debug-log-2.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "standard"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-dgram",
+    "name": "bare-dgram",
+    "version": "1.1.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-fqL5xD7k6iGL4SdmkW9LXCoMEbrk1Fwg6ZLN0vEG1XaFtTFUmgXxAfbZ6kL+385TZ+nRfLz32xeBZV9gs6lmsw==",
+    "resolved": "https://registry.npmjs.org/bare-dgram/-/bare-dgram-1.1.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-diagnostics-channel",
+    "name": "bare-diagnostics-channel",
+    "version": "1.1.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-Reu+EQo+eLpB+a5p8UykFEdXndFaRaSgKV38uAMh/qhE2eTeJcdwAwo74hKYyeN8GD3DIFqC9ZlM4bnDc03CIg==",
+    "resolved": "https://registry.npmjs.org/bare-diagnostics-channel/-/bare-diagnostics-channel-1.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-dns",
+    "name": "bare-dns",
+    "version": "2.2.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-76kta7f4YMiXwhdlK1q8AFnVvSlZ5yv4FL4AH83KoTRErgj0Ttm6Jo9993+gWEWQfl7VZTHtihPozstlknXszw==",
+    "resolved": "https://registry.npmjs.org/bare-dns/-/bare-dns-2.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-encoding",
+    "name": "bare-encoding",
+    "version": "1.0.3",
+    "license": "Apache-2.0",
+    "integrity": "sha512-Kqf+t/azs13lUeyK4Tb7ha4wdLRXKWCXQ8w1rVmt7KtoPCPdHD/Xwt7LBIsCSwwGglrcmblo5VOLa5avkJqULA==",
+    "resolved": "https://registry.npmjs.org/bare-encoding/-/bare-encoding-1.0.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-env",
+    "name": "bare-env",
+    "version": "3.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-BdoLvnzaWR0YyyJreEx4zG2Od0AC/s9JSZ+EXyMZKunpn8zEgR/dGv37hdFUaY1bjDkcRKvcKkFyJIwlJ0CaYA==",
+    "resolved": "https://registry.npmjs.org/bare-env/-/bare-env-3.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-events",
+    "name": "bare-events",
+    "version": "2.9.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-AIPKioV7/Y/8KfZ3AAhjPJxLLbY49S64Ym5DakZlUg75qQiTgUq9hEJoEwa4eUezPUlXRy/i5NpsKvo9jgKmoA==",
+    "resolved": "https://registry.npmjs.org/bare-events/-/bare-events-2.9.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-fetch",
+    "name": "bare-fetch",
+    "version": "3.4.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-NtISrwMKKnz+ITDb0+PSitFAtKTp1u8MvpU/TVoEE97uAHjNEr+MJhYiss2SjNzPRvrj1nWoJvYtG+dQiQxgJQ==",
+    "resolved": "https://registry.npmjs.org/bare-fetch/-/bare-fetch-3.4.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-form-data",
+    "name": "bare-form-data",
+    "version": "1.2.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-DQyAkCf5mgKT07orewuvaJfoalw7RBSHia4wgkrG7+seI6aHLB+r6gMRdCGrlO+BmCqMwgTeHAHxDU2NrOjQnQ==",
+    "resolved": "https://registry.npmjs.org/bare-form-data/-/bare-form-data-1.2.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-format",
+    "name": "bare-format",
+    "version": "1.0.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-GswdhnOnP9QtwRbrf4wLApw5widkaLMsLe2XOs35fQD2YfEN1ApoGka+cZ7PfvzxMgfYXmMhj/2OGlVn5/Dxgw==",
+    "resolved": "https://registry.npmjs.org/bare-format/-/bare-format-1.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-fs",
+    "name": "bare-fs",
+    "version": "4.8.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-+ZI68KHMUvosXfKbg/UOHK0tbCdRnegbvPEdEcZ3Nd6TetieQsJPRXBRXPdLyy8+3VSEbPXtsumTpEtt78xv9w==",
+    "resolved": "https://registry.npmjs.org/bare-fs/-/bare-fs-4.8.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-hrtime",
+    "name": "bare-hrtime",
+    "version": "2.1.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-ePu0axonbewvuUv9TFqjfvnZTaw+mL4JNx1q79dw8T3DIQEjqHs+pXyj92ghepa8K14KLtX3GdUuAVB+faaGDw==",
+    "resolved": "https://registry.npmjs.org/bare-hrtime/-/bare-hrtime-2.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-http-parser",
+    "name": "bare-http-parser",
+    "version": "2.1.4",
+    "license": "Apache-2.0",
+    "integrity": "sha512-6CRjxqMdrEoKKBCS6FbdZUuVsRtyqq18BUae9l9N5okSV75S9lUAF9f5aFSKTNybBS/hcnlxFNocdpXbd2Ohaw==",
+    "resolved": "https://registry.npmjs.org/bare-http-parser/-/bare-http-parser-2.1.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-http1",
+    "name": "bare-http1",
+    "version": "4.6.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-fnvBPNUH6KfdcEG7sKKKtvc3/9BEn3vkmJPgdtSLqGl6i2J9Csnl14mVv78ODPn8p3Zu2ZfmlG5XQzQQ45fwLw==",
+    "resolved": "https://registry.npmjs.org/bare-http1/-/bare-http1-4.6.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-https",
+    "name": "bare-https",
+    "version": "3.1.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-HNAS0q7CBAXGDFRy/xaYJEsAaVcvyDRXKU1b/KxS/zdcfBWsQVB0TntSzz3IlqZ5ZWHiaOOrMYAO/oIDgpTLkQ==",
+    "resolved": "https://registry.npmjs.org/bare-https/-/bare-https-3.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-inspect",
+    "name": "bare-inspect",
+    "version": "3.1.10",
+    "license": "Apache-2.0",
+    "integrity": "sha512-Qu01XZNTIT2/bS9k7c6A3OXuAzBnWwDCejGri76BUltdFqVe6Et/IxVOSSbcDpreSSWwqQ5pAu/bxFE6hPDWRQ==",
+    "resolved": "https://registry.npmjs.org/bare-inspect/-/bare-inspect-3.1.10.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-inspector",
+    "name": "bare-inspector",
+    "version": "6.1.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-PRxmZ4gF+K3TLzGubgRFvzdECybTCSKackgNsAdd4e7SdvICxMkGj+p5iX7bSKYSmgDnxgCR+2Z6UXmWykKhvw==",
+    "resolved": "https://registry.npmjs.org/bare-inspector/-/bare-inspector-6.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-logger",
+    "name": "bare-logger",
+    "version": "2.0.4",
+    "license": "Apache-2.0",
+    "integrity": "sha512-HZB3jmnu0C/hcN4HPtBLe7MA6TuwWHzjn4xalExMLlt20URKNKvRCNEMRsWrcFuBKx3wfC6oWySmGpqpaFcjRg==",
+    "resolved": "https://registry.npmjs.org/bare-logger/-/bare-logger-2.0.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-mime",
+    "name": "bare-mime",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-lUOswzBkfqham4zjLDueKOd4Qj3gS56BiZ3q2f0g0adoFhF+HFNupvTUfZBWoicl7fWJ7Hp2RUZjmkY47dxxOQ==",
+    "resolved": "https://registry.npmjs.org/bare-mime/-/bare-mime-1.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-module",
+    "name": "bare-module",
+    "version": "6.4.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-Yn4V5g5EqGQL4LYUOmt7fjKzj2JPWyJOqE3lPoeZwfUH5rk4CKUfZj6JhDwbzhBYCqqmUgjgQ5aY8cihAPILLA==",
+    "resolved": "https://registry.npmjs.org/bare-module/-/bare-module-6.4.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-module-lexer",
+    "name": "bare-module-lexer",
+    "version": "1.7.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-LD5eiVhDyiMRfMtxK3E+0SeL95nkLNl37YUccXWEaErmfkJi596OECtUoH3X+YPomthwW2oQEch9c7aOOJ4ePA==",
+    "resolved": "https://registry.npmjs.org/bare-module-lexer/-/bare-module-lexer-1.7.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-module-resolve",
+    "name": "bare-module-resolve",
+    "version": "1.12.5",
+    "license": "Apache-2.0",
+    "integrity": "sha512-VOncxVvVk8SQVw9vhcBnoTJD/74aR5DgdRPCm0gQ7uB5MsWpBJnoCeJrwEHKiz09O83ndf3NTjsz3LEuFxAq5A==",
+    "resolved": "https://registry.npmjs.org/bare-module-resolve/-/bare-module-resolve-1.12.5.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-module-traverse",
+    "name": "bare-module-traverse",
+    "version": "2.5.9",
+    "license": "Apache-2.0",
+    "integrity": "sha512-cAkJxUYfdaBvYS1N8g8evHmNNDtJD+PbZYXLBxF9Plg8EantwmUMwFe2EGFw96+VcVo2ot/8aIX+4aedH44NCg==",
+    "resolved": "https://registry.npmjs.org/bare-module-traverse/-/bare-module-traverse-2.5.9.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-net",
+    "name": "bare-net",
+    "version": "2.3.3",
+    "license": "Apache-2.0",
+    "integrity": "sha512-q1noXFJKn+eNi6vXYv2Y+5FTnn+o7qpli4m2lUZTdK8cBjVs2zGaykuzTUIa29v70eOsQI9OAIyYwN3ODHtFaQ==",
+    "resolved": "https://registry.npmjs.org/bare-net/-/bare-net-2.3.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-node-runtime",
+    "name": "bare-node-runtime",
+    "version": "1.5.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-S1CbshSQ1TNj/4blaRgslaAgECD7xdgrgBbisz8YRHLnvwB//7x3Ud71a0b02zAoGnF8GpUrz3hIlcp5BiCAag==",
+    "resolved": "https://registry.npmjs.org/bare-node-runtime/-/bare-node-runtime-1.5.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-os",
+    "name": "bare-os",
+    "version": "3.9.3",
+    "license": "Apache-2.0",
+    "integrity": "sha512-fF4Q7QsyKVF5Rj0qvI8BgUNjqzC2JvQlpTaPLjVJVxYVUX5Zr9un+y3w1HmA4nNKdFmRBT8z/WmrjvXzXVerKQ==",
+    "resolved": "https://registry.npmjs.org/bare-os/-/bare-os-3.9.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-path",
+    "name": "bare-path",
+    "version": "3.1.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-ZyKbsuuqK6Ag0K8pX6V5Txq6XeJRvY+wXucnFGRjiyVYP9YWDpIQugk/b+enRYrEYBJaqLzghRQpXPMR7341Nw==",
+    "resolved": "https://registry.npmjs.org/bare-path/-/bare-path-3.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-performance",
+    "name": "bare-performance",
+    "version": "2.1.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-nVlulswnYgXS2Fkbk4ZIKgfIWY/rmeG8ljM9aryPYClgPNzpOgOSLQzVSgU/K+ReLJHq7fEUQ9SBdjEs1QTIfw==",
+    "resolved": "https://registry.npmjs.org/bare-performance/-/bare-performance-2.1.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "bare --expose-gc test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-pipe",
+    "name": "bare-pipe",
+    "version": "4.3.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-3P4MYTgOys1Bbz5dgWzwfroNOOl8x1zWJHTHVlwsojThhV/uJPRf+qFrYYBOnI0vQiJJLJtHlw8a4Osj/kcsJQ==",
+    "resolved": "https://registry.npmjs.org/bare-pipe/-/bare-pipe-4.3.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-posix",
+    "name": "bare-posix",
+    "version": "1.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-b4quA8dyRVvX0aFIAIiev5zFATHwIUGr42Gmt+CqiBNg/bdsNkrj4bbkeotMOMiljJS4DCME5kywJO/TFwKo1A==",
+    "resolved": "https://registry.npmjs.org/bare-posix/-/bare-posix-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write .",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-process",
+    "name": "bare-process",
+    "version": "4.5.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-CaAvy1trputD49mtwfJ6G75vydhnirLrW/F3Sznp4H556e1uZn8YMo9ELicBTrGYy7RBNUgPl9bpB/ERzRCiDw==",
+    "resolved": "https://registry.npmjs.org/bare-process/-/bare-process-4.5.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-punycode",
+    "name": "bare-punycode",
+    "version": "0.0.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-PC2Y6mGLytZPJCB9M7CvO5Zb6uWYVUZ+5t3L6vePFuFM6tdC6SsQ+sIsuf0Sa6LHBoWURX7I9yMMbPXMv7TIdQ==",
+    "resolved": "https://registry.npmjs.org/bare-punycode/-/bare-punycode-0.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-querystring",
+    "name": "bare-querystring",
+    "version": "1.1.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-pUtEM6JrX53MbEJFwO92F0Ch7BwZ67KD7LyglcB8/tvkkVdwTgN1f7oIklRe+NTT/WCYZgwjDFYS9efBxDSq8g==",
+    "resolved": "https://registry.npmjs.org/bare-querystring/-/bare-querystring-1.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-readline",
+    "name": "bare-readline",
+    "version": "1.3.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-QtSU4ZfgQcDI6AQssjDFqTiRe4rCiciMn+Yqx6siMJZBIftAIFrNSOK0sa5SBrmNv/a7CD9Dm0onUDCRyn5Fdg==",
+    "resolved": "https://registry.npmjs.org/bare-readline/-/bare-readline-1.3.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-realm",
+    "name": "bare-realm",
+    "version": "2.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-kQbYU6AAQu4XBTQesuz2+PpjBx7MJzf5Qw3nSLzQCzbVglx7Ml85MtWEjUe1AeslXqrd+nFPHMEbL55ouISscA==",
+    "resolved": "https://registry.npmjs.org/bare-realm/-/bare-realm-2.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-repl",
+    "name": "bare-repl",
+    "version": "6.1.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-vV52s+zLcwf9WB6y09KwHrqHrCR0UUgcKz3NPhPAwmO62ctFYbBfjskBch92wWk7vRrF68dHJj3hmYNCe8d18g==",
+    "resolved": "https://registry.npmjs.org/bare-repl/-/bare-repl-6.1.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-semver",
+    "name": "bare-semver",
+    "version": "1.1.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-1Hw5qJ7hXdVt3uPUqjeFTuxyvBUJauvz5A1I2jk8gzjZMHp04n//6nV9MDbG9CMw78JHY2lGV0w6s//LrASm2w==",
+    "resolved": "https://registry.npmjs.org/bare-semver/-/bare-semver-1.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-signals",
+    "name": "bare-signals",
+    "version": "5.0.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-8Gn8bBFUh2AUCJ9wWWFjSGWIo1HIUSIQnXRJGSm/f7GCDMqsuJhRmR1dT+HtDaDBkeu2l8Koxt2JLurfJ5yHVw==",
+    "resolved": "https://registry.npmjs.org/bare-signals/-/bare-signals-5.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-sqlite",
+    "name": "bare-sqlite",
+    "version": "0.1.4",
+    "license": "Apache-2.0",
+    "integrity": "sha512-h2UdmQohSQG98lrMZ31PnhKIZRNT+1cDUZRzboHmsXKp+l4N4UBSJylMDEGL+D4fw6MJfOHWFIzUG20pITGy8Q==",
+    "resolved": "https://registry.npmjs.org/bare-sqlite/-/bare-sqlite-0.1.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-stdio",
+    "name": "bare-stdio",
+    "version": "1.0.3",
+    "license": "Apache-2.0",
+    "integrity": "sha512-8BRMx7RWMWCbBmKhyHgBco62J+Pgss7+EPI21L3R9+w0UpwDYWUUcbE0YTOesGyt7M6N7VtoshYbzwrP0pI52Q==",
+    "resolved": "https://registry.npmjs.org/bare-stdio/-/bare-stdio-1.0.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-stream",
+    "name": "bare-stream",
+    "version": "2.13.4",
+    "license": "Apache-2.0",
+    "integrity": "sha512-PcrQ8lVLbiJscNm1Kez+Yp4Gy4AHGcN1lzwjvf5NybWen7VvEgUfyfnXYJ2zNqWnzOfCb1Abq6lH8ti0syQszA==",
+    "resolved": "https://registry.npmjs.org/bare-stream/-/bare-stream-2.13.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-string-decoder",
+    "name": "bare-string-decoder",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-FjFvfHo88U7borNQSj9ijP2JTb1asqY6K28OZrix4dF9iZf5D2wi1+99CgLlHT3HtYqdwxRhDAiKu8rVstt5rQ==",
+    "resolved": "https://registry.npmjs.org/bare-string-decoder/-/bare-string-decoder-1.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-structured-clone",
+    "name": "bare-structured-clone",
+    "version": "2.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-F/n/etzjf4YlW4OCF0kpe0H6UOcCXZg0LrPMCY2dP9fg2R7fME5crkmQlM1Hl62iKipMQFaT9S2eSyx0tBCJ8g==",
+    "resolved": "https://registry.npmjs.org/bare-structured-clone/-/bare-structured-clone-2.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-stylize",
+    "name": "bare-stylize",
+    "version": "0.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-l3MjmIl476bWijYWf3RbE+osl4iuXSOMudzp0vAqzIK7gPgn/+G3oAxp8Oin9CFF911KBP0LO9kts8Ci8mGZaQ==",
+    "resolved": "https://registry.npmjs.org/bare-stylize/-/bare-stylize-0.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-subprocess",
+    "name": "bare-subprocess",
+    "version": "6.2.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-vVCIEXSyMNuokdjV8yIzt3Vtbc+gFUI/C/z7CAsO4cGTtHlVEuJeI6V6JP0hUBScCgj62xFloMAM3Y2aPTQuQA==",
+    "resolved": "https://registry.npmjs.org/bare-subprocess/-/bare-subprocess-6.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-system-logger",
+    "name": "bare-system-logger",
+    "version": "1.0.6",
+    "license": "Apache-2.0",
+    "integrity": "sha512-wAyqwfeQ4wVPHnVQTCsDE/kAHRd51XI1LqzgkJegRDX8AFilo1NGprF/5XpNz5uB4MV+hb2O2fe5v3IuCgMTDA==",
+    "resolved": "https://registry.npmjs.org/bare-system-logger/-/bare-system-logger-1.0.6.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-tcp",
+    "name": "bare-tcp",
+    "version": "2.6.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-8f8UFP7O27gIGaVWJPysQ2am8LSD6YCuVSbnTbOrQjUD0RkWEZexvi2Q66P99MLxSephlyjoU0mLxWmozRJMnA==",
+    "resolved": "https://registry.npmjs.org/bare-tcp/-/bare-tcp-2.6.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-thread",
+    "name": "bare-thread",
+    "version": "1.2.8",
+    "license": "Apache-2.0",
+    "integrity": "sha512-kEN+vIvyDCFj64xBXOjylsc0nmv8hI9JshPbBjWWcttrUwb4zvr6W0XbbICMLEYwowqICzFUrXVmG9qlq1FVPw==",
+    "resolved": "https://registry.npmjs.org/bare-thread/-/bare-thread-1.2.8.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-timers",
+    "name": "bare-timers",
+    "version": "3.2.3",
+    "license": "Apache-2.0",
+    "integrity": "sha512-PW36nOU4AKbQSrbWlrYhDJgsEWbZST0v8s8FvlgVySUby7CfXdUpXVCTFmgXcpZevQx7BCXqKM/A8NJDHPGkzQ==",
+    "resolved": "https://registry.npmjs.org/bare-timers/-/bare-timers-3.2.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-tls",
+    "name": "bare-tls",
+    "version": "3.1.11",
+    "license": "Apache-2.0",
+    "integrity": "sha512-lCQMepLYPPmdunO4MtkVe6l619Kdrt47/0HDGOgJY6zVvEeFACZD1hkh1kRw6zJk2NQHLcnebggYQZ/z6J/cPg==",
+    "resolved": "https://registry.npmjs.org/bare-tls/-/bare-tls-3.1.11.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-tty",
+    "name": "bare-tty",
+    "version": "5.2.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-vH9ggdu6q+HilCKcYCfSzwuN2QaR4+gGP+JiYN5zKMhMI6tKeKnZMCuE/AJoF9lbSo0FriPdZoKA5bO2b0Mk3w==",
+    "resolved": "https://registry.npmjs.org/bare-tty/-/bare-tty-5.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-type",
+    "name": "bare-type",
+    "version": "1.4.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-6anDbVGruQLK8m6zxlCPNkUuxXnzChT1aOmJbFRjEGn8MWZqviFP6vGi9NAnG8aRXyRAfXIGLlBJwYGa4Ylcug==",
+    "resolved": "https://registry.npmjs.org/bare-type/-/bare-type-1.4.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-type-stripper",
+    "name": "bare-type-stripper",
+    "version": "0.1.7",
+    "license": "Apache-2.0",
+    "integrity": "sha512-kiYTY1PqJnCQmaGT4Q23gskKCTtxqinPdA0SKMO80rjyLMdZhkT+mALf+/UryvovV6ysXtYXGSNPZR4wFhCI/g==",
+    "resolved": "https://registry.npmjs.org/bare-type-stripper/-/bare-type-stripper-0.1.7.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-url",
+    "name": "bare-url",
+    "version": "2.5.4",
+    "license": "Apache-2.0",
+    "integrity": "sha512-Gxa7UVWBr0/edU1b+TJhn/AZvMQUj9OGspvYsaTYQrAbZA4BOTZGL3LiZxvD+CeMlDH4juwD84+eTAp/bLYW5g==",
+    "resolved": "https://registry.npmjs.org/bare-url/-/bare-url-2.5.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-utils",
+    "name": "bare-utils",
+    "version": "1.6.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-WhQEIkkAxkSnW7u1QgrI0AfNm5JpMruETXeYsb5qnkBJ0TTfNKygZmsh6rkoHBANaV+C/7Jed7bJP9OmEHG7rQ==",
+    "resolved": "https://registry.npmjs.org/bare-utils/-/bare-utils-1.6.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-v8",
+    "name": "bare-v8",
+    "version": "1.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-/cR5ZvFWQRdtTZ4tx0j7TKvTWce8UnnLqm88fwHtJmfM7HODIBVjQGDT7KkDLeD2d/eHP2pzB71Y8/QyiMMKrQ==",
+    "resolved": "https://registry.npmjs.org/bare-v8/-/bare-v8-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-vm",
+    "name": "bare-vm",
+    "version": "1.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-yLnbRvKt3AhRTmtfTIrYfdTHqGEfIJc+Fgb2DcHejE0HJ+p5adGxxPMvd3893Z7iXVYnalxukNARn4oJSZELHQ==",
+    "resolved": "https://registry.npmjs.org/bare-vm/-/bare-vm-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-worker",
+    "name": "bare-worker",
+    "version": "4.5.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-lMs1LskNXplwN5Q+FwNbEhuDhDViS3dGuJ96vawsrtIz/wZzNkuC6CYCJQho2ZMJr8sf+q+QYXQPD2B2kM3BvA==",
+    "resolved": "https://registry.npmjs.org/bare-worker/-/bare-worker-4.5.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-worker/node_modules/bare-module",
+    "name": "bare-module",
+    "version": "7.2.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-7Mup6QLZCqhc0m72YnQvplwrB8tfWLjgTlrfmEH+FaUsYGheD7hF8T8dw0Gmv2jfZw48hWDB89U6mg4DRKN2FQ==",
+    "resolved": "https://registry.npmjs.org/bare-module/-/bare-module-7.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-ws",
+    "name": "bare-ws",
+    "version": "3.2.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-9PPJX5JrhuObWZGyhYCrQ1DbhjY1BLVALkZF56r0SYnfyN18ok84yUETcQ377aC2W6w8IqBewjQ1GlovtiXA1Q==",
+    "resolved": "https://registry.npmjs.org/bare-ws/-/bare-ws-3.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bare-zlib",
+    "name": "bare-zlib",
+    "version": "1.4.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-CsnQl+XyLaUecB9/OUpjqmemung10M7J2UNXz+6NAVrZAI3HC9c5Kxw34aI0jaU9+gb2yUCD31hOrtPZlnE3bA==",
+    "resolved": "https://registry.npmjs.org/bare-zlib/-/bare-zlib-1.4.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "brittle-bare --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bip39",
+    "name": "bip39",
+    "version": "3.1.0",
+    "license": "ISC",
+    "integrity": "sha512-c9kiwdk45Do5GL0vJMe7tS95VjCii65mYAH7DfWl3uW8AVzXKQVUm64i3hzVybBDMp9r7j9iNxR85+ul8MdN/A==",
+    "resolved": "https://registry.npmjs.org/bip39/-/bip39-3.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build": "npm run clean && tsc -p tsconfig.json",
+      "clean": "rm -rf src",
+      "coverage": "nyc --branches 85 --functions 100 --check-coverage npm run unit",
+      "format": "npm run prettier -- --write",
+      "format:ci": "npm run prettier -- --check",
+      "gitdiff:ci": "npm run build && git diff --exit-code",
+      "lint": "tslint -p tsconfig.json -c tslint.json",
+      "prettier": "prettier 'ts_src/**/*.ts' --ignore-path ./.prettierignore",
+      "test": "npm run build && npm run format:ci && npm run lint && npm run unit",
+      "unit": "tape test/*.js",
+      "update": "node -e \"require('./util/wordlists').update()\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/body-parser",
+    "name": "body-parser",
+    "version": "2.3.0",
+    "license": "MIT",
+    "integrity": "sha512-2cGmJupaNgg+QUwVLAucDuWuoMZ6EX9iHDRswZ5lsNYEmwPaRknMPCLZz07yTzVq/83p4o/wzbDZbBrTvGGTIw==",
+    "resolved": "https://registry.npmjs.org/body-parser/-/body-parser-2.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks test/",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/body-parser/node_modules/content-type",
+    "name": "content-type",
+    "version": "2.1.0",
+    "license": "MIT",
+    "integrity": "sha512-mj7UPXE0jaqaOsukNZRUEfEi2AcL7C/vwmwcHV0O97eO1E1pxBZuyjlZrx5seTaNBg1U6+o35wpa35Qfcc+7ag==",
+    "resolved": "https://registry.npmjs.org/content-type/-/content-type-2.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "vitest bench",
+      "build": "ts-scripts build",
+      "format": "ts-scripts format",
+      "prepare": "ts-scripts install && npm run build",
+      "specs": "ts-scripts specs",
+      "test": "ts-scripts test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/bytes",
+    "name": "bytes",
+    "version": "3.1.2",
+    "license": "MIT",
+    "integrity": "sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==",
+    "resolved": "https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --check-leaks --reporter spec",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/call-bind-apply-helpers",
+    "name": "call-bind-apply-helpers",
+    "version": "1.0.2",
+    "license": "MIT",
+    "integrity": "sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==",
+    "resolved": "https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=auto",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=.js,.mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/call-bound",
+    "name": "call-bound",
+    "version": "1.0.4",
+    "license": "MIT",
+    "integrity": "sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg==",
+    "resolved": "https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=auto",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=.js,.mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/compact-encoding",
+    "name": "compact-encoding",
+    "version": "3.5.2",
+    "license": "Apache-2.0",
+    "integrity": "sha512-rgGcWdfxyuLwJHMUXI0OrYGpJe3VN4RZyovbxWVlxPYIsUZutOTfP3shmDyDi/iaybwcxMsTJDDuxQa4xRG0RQ==",
+    "resolved": "https://registry.npmjs.org/compact-encoding/-/compact-encoding-3.5.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier . --write",
+      "test": "prettier . --check && brittle-node test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/content-disposition",
+    "name": "content-disposition",
+    "version": "1.1.0",
+    "license": "MIT",
+    "integrity": "sha512-5jRCH9Z/+DRP7rkvY83B+yGIGX96OYdJmzngqnw2SBSxqCFPd0w2km3s5iawpGX8krnwSGmF0FW5Nhr0Hfai3g==",
+    "resolved": "https://registry.npmjs.org/content-disposition/-/content-disposition-1.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "node --test --test-reporter spec",
+      "test-ci": "c8 --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "c8 --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/content-type",
+    "name": "content-type",
+    "version": "1.0.5",
+    "license": "MIT",
+    "integrity": "sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==",
+    "resolved": "https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks --bail test/",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/cookie",
+    "name": "cookie",
+    "version": "0.7.2",
+    "license": "MIT",
+    "integrity": "sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==",
+    "resolved": "https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "update-bench": "node scripts/update-benchmark.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/cookie-signature",
+    "name": "cookie-signature",
+    "version": "1.2.2",
+    "license": "MIT",
+    "integrity": "sha512-D76uU73ulSXrD1UXF4KE2TMxVVwhsnCgfAyTg9k8P6KGZjlXKrOLe4dJQKI3Bxi5wjesZoFXJWElNWBjPZMbhg==",
+    "resolved": "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "mocha --require should --reporter spec"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/debug",
+    "name": "debug",
+    "version": "4.4.3",
+    "license": "MIT",
+    "integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==",
+    "resolved": "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "xo",
+      "test": "npm run test:node && npm run test:browser && npm run lint",
+      "test:node": "mocha test.js test.node.js",
+      "test:browser": "karma start --single-run",
+      "test:coverage": "cat ./coverage/lcov.info | coveralls"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/depd",
+    "name": "depd",
+    "version": "2.0.0",
+    "license": "MIT",
+    "integrity": "sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==",
+    "resolved": "https://registry.npmjs.org/depd/-/depd-2.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint --plugin markdown --ext js,md .",
+      "test": "mocha --reporter spec --bail test/",
+      "test-ci": "istanbul cover --print=none node_modules/mocha/bin/_mocha -- --reporter spec test/ && istanbul report lcovonly text-summary",
+      "test-cov": "istanbul cover --print=none node_modules/mocha/bin/_mocha -- --reporter dot test/ && istanbul report lcov text-summary"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/dunder-proto",
+    "name": "dunder-proto",
+    "version": "1.0.1",
+    "license": "MIT",
+    "integrity": "sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==",
+    "resolved": "https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=.js,.mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>= 10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ee-first",
+    "name": "ee-first",
+    "version": "1.1.1",
+    "license": "MIT",
+    "integrity": "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==",
+    "resolved": "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+      "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/encodeurl",
+    "name": "encodeurl",
+    "version": "2.0.0",
+    "license": "MIT",
+    "integrity": "sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==",
+    "resolved": "https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+      "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/es-define-property",
+    "name": "es-define-property",
+    "version": "1.0.1",
+    "license": "MIT",
+    "integrity": "sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g==",
+    "resolved": "https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p .",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>= 10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/es-errors",
+    "name": "es-errors",
+    "version": "1.3.0",
+    "license": "MIT",
+    "integrity": "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==",
+    "resolved": "https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "pretest": "npm run lint",
+      "test": "npm run tests-only",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "posttest": "aud --production",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p . && eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git' | grep -v dist/)",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/es-object-atoms",
+    "name": "es-object-atoms",
+    "version": "1.1.2",
+    "license": "MIT",
+    "integrity": "sha512-HWcBoN6NileqtSydK2FqHbS/LoDd2pqrnQHLyJzBj4kOp/ky2MWMN694xOfkK8/SnUsW2DH7EfyVlydKCsm1Zw==",
+    "resolved": "https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "pretest": "npm run lint",
+      "test": "npm run tests-only",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "posttest": "npx npm@\">= 10.2\" audit --production",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p . && eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git' | grep -v dist/)",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/escape-html",
+    "name": "escape-html",
+    "version": "1.0.3",
+    "license": "MIT",
+    "integrity": "sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==",
+    "resolved": "https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/etag",
+    "name": "etag",
+    "version": "1.8.1",
+    "license": "MIT",
+    "integrity": "sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==",
+    "resolved": "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint --plugin markdown --ext js,md .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+      "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ethers",
+    "name": "ethers",
+    "version": "6.17.0",
+    "license": "MIT",
+    "integrity": "sha512-BpyrpIPJ3ydEVow8zGaz1DuPS7YU8DcWxuBnY9a0UA/lvAPwrMr+EPXsfrul628SRaekPNeIM4UFh/91GWZang==",
+    "resolved": "https://registry.npmjs.org/ethers/-/ethers-6.17.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "_build-dist": "rollup -c && uglifyjs ./dist/ethers.js -o ./dist/ethers.min.js && uglifyjs ./dist/ethers.umd.js -o ./dist/ethers.umd.min.js && uglifyjs ./dist/wordlists-extra.js -o ./dist/wordlists-extra.min.js",
+      "_dist-stats": "gzip -k9f -S '.gz' ./dist/ethers.min.js && gzip -k9f -S '.gz' ./dist/ethers.umd.min.js && gzip -k9f -S '.gz' ./dist/wordlists-extra.min.js && du -hs ./dist/*.gz && echo '' && du -hs ./dist/*.js",
+      "auto-build": "npm run build -- -w",
+      "build": "tsc --project tsconfig.esm.json",
+      "build-all": "npm run build && npm run build-commonjs",
+      "build-clean": "npm run clean && npm run build && node lib.esm/_admin/update-version.js && node lib.esm/_admin/update-changelog.js && npm run build-all && npm run _build-dist && npm run _dist-stats",
+      "build-commonjs": "tsc --project tsconfig.commonjs.json",
+      "build-dist": "npm run build && npm run _build-dist && npm run _dist-stats",
+      "clean": "rm -rf dist lib.esm lib.commonjs && cp -r misc/basedirs/* .",
+      "postpublish": "node lib.esm/_admin/create-release.js",
+      "stats": "echo 'Dependencies' && npm ls --all --omit=dev",
+      "test": "npm run test-esm",
+      "test-browser": "node lib.esm/_admin/test-browser",
+      "test-commonjs": "mocha --reporter ./reporter.cjs ./lib.commonjs/_tests/test-*.js",
+      "test-coverage": "c8 -o output -r lcov -r text mocha --no-color --reporter ./reporter.cjs ./lib.esm/_tests/test-*.js | tee output/summary.txt",
+      "test-esm": "mocha --trace-warnings --reporter ./reporter.cjs ./lib.esm/_tests/test-*.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ethers/node_modules/@noble/curves",
+    "name": "@noble/curves",
+    "version": "1.2.0",
+    "license": "MIT",
+    "integrity": "sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==",
+    "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "cd benchmark; node secp256k1.js; node curves.js; node ecdh.js; node hash-to-curve.js; node modular.js; node bls.js; node ristretto255.js; node decaf448.js",
+      "build": "tsc && tsc -p tsconfig.esm.json",
+      "build:release": "rollup -c rollup.config.js",
+      "build:clean": "rm *.{js,d.ts,d.ts.map,js.map} esm/*.{js,d.ts,d.ts.map,js.map} 2> /dev/null",
+      "lint": "prettier --check 'src/**/*.{js,ts}' 'test/*.js'",
+      "format": "prettier --write 'src/**/*.{js,ts}' 'test/*.js'",
+      "test": "node test/index.test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ethers/node_modules/@noble/hashes",
+    "name": "@noble/hashes",
+    "version": "1.3.2",
+    "license": "MIT",
+    "integrity": "sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==",
+    "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.3.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js noble",
+      "bench:all": "node benchmark/index.js",
+      "bench:install": "cd benchmark && npm install && cd ../../",
+      "build": "npm run build:clean; tsc && tsc -p tsconfig.esm.json",
+      "build:release": "cd build; npm i; npm run build",
+      "build:clean": "rm *.{js,d.ts,js.map} esm/*.{js,js.map} 2> /dev/null",
+      "lint": "prettier --check 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
+      "format": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
+      "test": "node test/index.js",
+      "test:dos": "node test/slow-dos.test.js",
+      "test:big": "node test/slow-big.test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/eventemitter3",
+    "name": "eventemitter3",
+    "version": "5.0.1",
+    "license": "MIT",
+    "integrity": "sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==",
+    "resolved": "https://registry.npmjs.org/eventemitter3/-/eventemitter3-5.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "rollup": "rimraf dist umd && rollup -c",
+      "benchmark": "find benchmarks/run -name '*.js' -exec benchmarks/start.sh {} \\;",
+      "test": "c8 --reporter=lcov --reporter=text mocha test/test.js",
+      "test-esm": "mocha test/test.mjs",
+      "prepublishOnly": "npm run rollup",
+      "test-browser": "node test/browser.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/events-universal",
+    "name": "events-universal",
+    "version": "1.0.1",
+    "license": "Apache-2.0",
+    "integrity": "sha512-LUd5euvbMLpwOF8m6ivPCbhQeSiYVNb8Vs0fQ8QjXo0JTkEHpz8pxdQf0gStltaPpw0Cca8b39KxvK9cfKRiAw==",
+    "resolved": "https://registry.npmjs.org/events-universal/-/events-universal-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/express",
+    "name": "express",
+    "version": "5.2.1",
+    "license": "MIT",
+    "integrity": "sha512-hIS4idWWai69NezIdRt2xFVofaF4j+6INOpJlVOLDO8zXGpUVEVzIYk12UUi2JzjEzWL3IOAxcTubgz9Po0yXw==",
+    "resolved": "https://registry.npmjs.org/express/-/express-5.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "lint:fix": "eslint . --fix",
+      "test": "mocha --require test/support/env --reporter spec --check-leaks test/ test/acceptance/",
+      "test-ci": "nyc --exclude examples --exclude test --exclude benchmarks --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --exclude examples --exclude test --exclude benchmarks --reporter=html --reporter=text npm test",
+      "test-tap": "mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/fast-deep-equal",
+    "name": "fast-deep-equal",
+    "version": "3.1.3",
+    "license": "MIT",
+    "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==",
+    "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "eslint": "eslint *.js benchmark/*.js spec/*.js",
+      "build": "node build",
+      "benchmark": "npm i && npm run build && cd ./benchmark && npm i && node ./",
+      "test-spec": "mocha spec/*.spec.js -R spec",
+      "test-cov": "nyc npm run test-spec",
+      "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
+      "test": "npm run build && npm run eslint && npm run test-ts && npm run test-cov",
+      "prepublish": "npm run build"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/fast-fifo",
+    "name": "fast-fifo",
+    "version": "1.3.2",
+    "license": "MIT",
+    "integrity": "sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ==",
+    "resolved": "https://registry.npmjs.org/fast-fifo/-/fast-fifo-1.3.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "standard && brittle test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/fast-uri",
+    "name": "fast-uri",
+    "version": "3.1.8",
+    "license": "BSD-3-Clause",
+    "integrity": "sha512-GZMtZUTNRpOVIECoXwLNZS5xUGE+mVNbTB8h/7Rwh2TFWcBQiPzTgyZi05BF9UMZKkLJv8XBRJTlU7zg8+ZfMg==",
+    "resolved": "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.8.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint",
+      "lint:fix": "eslint --fix",
+      "test": "npm run test:unit && npm run test:typescript",
+      "test:browser:chromium": "playwright-test ./test/* --runner tape --browser=chromium",
+      "test:browser:firefox": "playwright-test ./test/* --runner tape --browser=firefox",
+      "test:browser:webkit": "playwright-test ./test/* --runner tape --browser=webkit",
+      "test:browser": "npm run test:browser:chromium && npm run test:browser:firefox && npm run test:browser:webkit",
+      "test:unit": "tape test/**/*.js",
+      "test:unit:dev": "npm run test:unit -- --coverage-report=html",
+      "test:typescript": "tsd"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/finalhandler",
+    "name": "finalhandler",
+    "version": "2.1.1",
+    "license": "MIT",
+    "integrity": "sha512-S8KoZgRZN+a5rNwqTxlZZePjT/4cnm0ROV70LedRHZ0p8u9fRID0hJUZQpkKLzro8LfmC8sx23bY6tVNxv8pQA==",
+    "resolved": "https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks test/",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "test-inspect": "mocha --reporter spec --inspect --inspect-brk test/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/forwarded",
+    "name": "forwarded",
+    "version": "0.2.0",
+    "license": "MIT",
+    "integrity": "sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==",
+    "resolved": "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/fresh",
+    "name": "fresh",
+    "version": "2.0.0",
+    "license": "MIT",
+    "integrity": "sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==",
+    "resolved": "https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks --bail test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/function-bind",
+    "name": "function-bind",
+    "version": "1.1.2",
+    "license": "MIT",
+    "integrity": "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==",
+    "resolved": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "pretest": "npm run lint",
+      "test": "npm run tests-only",
+      "posttest": "aud --production",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "lint": "eslint --ext=js,mjs .",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/get-intrinsic",
+    "name": "get-intrinsic",
+    "version": "1.3.0",
+    "license": "MIT",
+    "integrity": "sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ==",
+    "resolved": "https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=.js,.mjs .",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>= 10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/get-proto",
+    "name": "get-proto",
+    "version": "1.0.1",
+    "license": "MIT",
+    "integrity": "sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==",
+    "resolved": "https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "pretest": "npm run --silent lint",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@\">=10.2\" audit --production",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "prelint": "evalmd README.md",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc && attw -P",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/gopd",
+    "name": "gopd",
+    "version": "1.2.0",
+    "license": "MIT",
+    "integrity": "sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==",
+    "resolved": "https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prelint": "tsc -p . && attw -P",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "evalmd README.md",
+      "pretest": "npm run lint",
+      "tests-only": "tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/has-symbols",
+    "name": "has-symbols",
+    "version": "1.1.0",
+    "license": "MIT",
+    "integrity": "sha512-1cDNdwJ2Jaohmb3sg4OmKaMBwuC48sYni5HUw2DvsC8LjGTLK9h+eb1X6RyuOHe4hT0ULCW68iomhjUoKUqlPQ==",
+    "resolved": "https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "pretest": "npm run --silent lint",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "tests-only": "npm run test:stock && npm run test:shams",
+      "test:stock": "nyc node test",
+      "test:staging": "nyc node --harmony --es-staging test",
+      "test:shams": "npm run --silent test:shams:getownpropertysymbols && npm run --silent test:shams:corejs",
+      "test:shams:corejs": "nyc node test/shams/core-js.js",
+      "test:shams:getownpropertysymbols": "nyc node test/shams/get-own-property-symbols.js",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/hasown",
+    "name": "hasown",
+    "version": "2.0.4",
+    "license": "MIT",
+    "integrity": "sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==",
+    "resolved": "https://registry.npmjs.org/hasown/-/hasown-2.0.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "prelint": "evalmd README.md",
+      "lint": "eslint .",
+      "postlint": "npm run tsc",
+      "pretest": "npm run lint",
+      "tsc": "tsc -p .",
+      "posttsc": "attw -P",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@\">= 10.2\" audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/http-errors",
+    "name": "http-errors",
+    "version": "2.0.1",
+    "license": "MIT",
+    "integrity": "sha512-4FbRdAX+bSdmo4AUFuS0WNiPz8NgFt+r8ThgNWmlrjQjt1Q7ZR9+zTlce2859x4KSXrwIsaeTqDoKQmtP8pLmQ==",
+    "resolved": "https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint . && node ./scripts/lint-readme-list.js",
+      "test": "mocha --reporter spec",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/iconv-lite",
+    "name": "iconv-lite",
+    "version": "0.7.3",
+    "license": "MIT",
+    "integrity": "sha512-IKXpvIzjnC9XTAUbVBcMfGS0EPaIXtW6v+zr+RRp+hqULEpo0owZax6wyRwPOJbWbzjYspQwusTsfVr0ifh4uQ==",
+    "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint",
+      "lint:fix": "eslint --fix",
+      "test": "mocha --reporter spec --check-leaks --grep .",
+      "test:ci": "nyc --exclude test --reporter=lcovonly --reporter=text npm test",
+      "test:cov": "nyc --exclude test --reporter=html --reporter=text npm test",
+      "test:performance": "node --allow-natives-syntax performance/index.js",
+      "test:tap": "mocha --reporter tap --check-leaks --grep .",
+      "test:typescript": "tsc && attw --pack",
+      "test:webpack": "npm pack && mv iconv-lite-*.tgz test/webpack/iconv-lite.tgz && cd test/webpack && npm install && npm run test && rm iconv-lite.tgz",
+      "typegen": "node generation/gen-typings.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/inherits",
+    "name": "inherits",
+    "version": "2.0.4",
+    "license": "ISC",
+    "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==",
+    "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "tap"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ipaddr.js",
+    "name": "ipaddr.js",
+    "version": "1.9.1",
+    "license": "MIT",
+    "integrity": "sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==",
+    "resolved": "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "cake build test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/is-promise",
+    "name": "is-promise",
+    "version": "4.0.0",
+    "license": "MIT",
+    "integrity": "sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==",
+    "resolved": "https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "node test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/isows",
+    "name": "isows",
+    "version": "1.0.7",
+    "license": "MIT",
+    "integrity": "sha512-I1fSfDCZL5P0v33sVqeTDSpcstAg/N+wF5HS033mogOVIp4B+oHC7oOCsA3axAbBSGTJ8QubbNmnIRN/h8U7hg==",
+    "resolved": "https://registry.npmjs.org/isows/-/isows-1.0.7.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/jose",
+    "name": "jose",
+    "version": "5.10.0",
+    "license": "MIT",
+    "integrity": "sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==",
+    "resolved": "https://registry.npmjs.org/jose/-/jose-5.10.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/json-schema-traverse",
+    "name": "json-schema-traverse",
+    "version": "1.0.0",
+    "license": "MIT",
+    "integrity": "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==",
+    "resolved": "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "eslint": "eslint index.js spec",
+      "test-spec": "mocha spec -R spec",
+      "test": "npm run eslint && nyc npm run test-spec"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/math-intrinsics",
+    "name": "math-intrinsics",
+    "version": "1.1.0",
+    "license": "MIT",
+    "integrity": "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==",
+    "resolved": "https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "pretest": "npm run lint",
+      "test": "npm run tests-only",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "posttest": "npx npm@'>= 10.2' audit --production",
+      "prelint": "evalmd README.md && eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git' | grep -v dist/)",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc && attw -P",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/media-typer",
+    "name": "media-typer",
+    "version": "1.1.1",
+    "license": "MIT",
+    "integrity": "sha512-yz3xRaG20c6/BOzvYoDaGtPmGscs7YivItZEEqe6GbwNfHuxu9YNmvnEkMzKldAGY4/80pRcQRZSEnhquk9XuQ==",
+    "resolved": "https://registry.npmjs.org/media-typer/-/media-typer-1.1.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint --plugin markdown --ext js,md .",
+      "test": "mocha --reporter spec --check-leaks --bail test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/merge-descriptors",
+    "name": "merge-descriptors",
+    "version": "2.0.0",
+    "license": "MIT",
+    "integrity": "sha512-Snk314V5ayFLhp3fkUREub6WtjBfPdCPY1Ln8/8munuLuiYhsABgBVWsozAG+MWMbVEvcdcpbi9R7ww22l9Q3g==",
+    "resolved": "https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "xo && ava"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/mime-db",
+    "name": "mime-db",
+    "version": "1.54.0",
+    "license": "MIT",
+    "integrity": "sha512-aU5EJuIN2WDemCcAp2vFBfp/m4EAhWJnUNSSw0ixs7/kXbd6Pg64EmwJkNdFhB8aWt1sH2CTXrLxo/iAGV3oPQ==",
+    "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build": "node scripts/build",
+      "fetch": "node scripts/fetch-apache && node scripts/fetch-iana && node scripts/fetch-nginx",
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks test/",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "update": "npm run fetch && npm run build",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/mime-types",
+    "name": "mime-types",
+    "version": "3.0.2",
+    "license": "MIT",
+    "integrity": "sha512-Lbgzdk0h4juoQ9fCKXW4by0UJqj+nOOrI9MJ1sSj4nI8aI2eo1qmvQEie4VD1glsS250n15LsWsYtCugiStS5A==",
+    "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec test/test.js",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ms",
+    "name": "ms",
+    "version": "2.1.3",
+    "license": "MIT",
+    "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==",
+    "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "precommit": "lint-staged",
+      "lint": "eslint lib/* bin/*",
+      "test": "mocha tests.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/negotiator",
+    "name": "negotiator",
+    "version": "1.1.0",
+    "license": "MIT",
+    "integrity": "sha512-NMPBRMJgiQHjbd8phG3Vebdx4kZ1H121rbl5IkMqeOsahptB9BKo/d7oJ3zTXqTgagn2bWlNSXkh0QUGM31RYg==",
+    "resolved": "https://registry.npmjs.org/negotiator/-/negotiator-1.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "vitest bench",
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks test/",
+      "test:debug": "mocha --reporter spec --check-leaks --inspect --inspect-brk test/",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/negotiator/node_modules/content-type",
+    "name": "content-type",
+    "version": "2.1.0",
+    "license": "MIT",
+    "integrity": "sha512-mj7UPXE0jaqaOsukNZRUEfEi2AcL7C/vwmwcHV0O97eO1E1pxBZuyjlZrx5seTaNBg1U6+o35wpa35Qfcc+7ag==",
+    "resolved": "https://registry.npmjs.org/content-type/-/content-type-2.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "vitest bench",
+      "build": "ts-scripts build",
+      "format": "ts-scripts format",
+      "prepare": "ts-scripts install && npm run build",
+      "specs": "ts-scripts specs",
+      "test": "ts-scripts test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/object-inspect",
+    "name": "object-inspect",
+    "version": "1.13.4",
+    "license": "MIT",
+    "integrity": "sha512-W67iLl4J2EXEGTbfeHCffrjDfitvLANg0UlX3wFUUSTx92KXRFegMHUVgSqE+wvhAbi4WqjGg9czysTV2Epbew==",
+    "resolved": "https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prepublishOnly": "safe-publish-latest",
+      "pretest": "npm run lint",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "npx @pkgjs/support validate",
+      "test": "npm run tests-only && npm run test:corejs",
+      "tests-only": "nyc tape 'test/*.js'",
+      "test:corejs": "nyc tape test-core-js.js 'test/*.js'",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/on-finished",
+    "name": "on-finished",
+    "version": "2.4.1",
+    "license": "MIT",
+    "integrity": "sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==",
+    "resolved": "https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/once",
+    "name": "once",
+    "version": "1.4.0",
+    "license": "ISC",
+    "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==",
+    "resolved": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "tap test/*.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ox",
+    "name": "ox",
+    "version": "0.14.45",
+    "license": "MIT",
+    "integrity": "sha512-jpsQ+p0JZh9mKCxxzxz0d5qFHZZg2/O9xW18IpEC/dNXXPVqmDJ0c//9RMz0CILkbSGPA42+cbU0fC/ghwJ03w==",
+    "resolved": "https://registry.npmjs.org/ox/-/ox-0.14.45.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ox/node_modules/@noble/curves",
+    "name": "@noble/curves",
+    "version": "1.9.1",
+    "license": "MIT",
+    "integrity": "sha512-k11yZxZg+t+gWvBbIswW0yoJlu8cHOC7dhunwOzoWH/mXGBiYyR4YY6hAEK/3EUs4UpB8la1RfdRpeGsFHkWsA==",
+    "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.9.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "npm run bench:install; cd benchmark; node secp256k1.js; node curves.js; node utils.js; node bls.js",
+      "bench:install": "cd benchmark; npm install; npm install .. --install-links",
+      "build": "tsc && tsc -p tsconfig.cjs.json",
+      "build:release": "npx jsbt esbuild test/build",
+      "build:clean": "rm {.,esm,abstract,esm/abstract}/*.{js,d.ts,d.ts.map,js.map} 2> /dev/null",
+      "lint": "prettier --check 'src/**/*.{js,ts}' 'test/*.js'",
+      "format": "prettier --write 'src/**/*.{js,ts}' 'test/*.js'",
+      "test": "node test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read test/index.js",
+      "test:coverage": "npm install --no-save c8@10.1.2 && npx c8 npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/parseurl",
+    "name": "parseurl",
+    "version": "1.3.3",
+    "license": "MIT",
+    "integrity": "sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==",
+    "resolved": "https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint .",
+      "test": "mocha --check-leaks --bail --reporter spec test/",
+      "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot test/",
+      "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec test/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/path-to-regexp",
+    "name": "path-to-regexp",
+    "version": "8.4.2",
+    "license": "MIT",
+    "integrity": "sha512-qRcuIdP69NPm4qbACK+aDogI5CBDMi1jKe0ry5rSQJz8JVLsC7jV8XpiJjGRLLol3N+R5ihGYcrPLTno6pAdBA==",
+    "resolved": "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.4.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "vitest bench",
+      "build": "ts-scripts build",
+      "format": "ts-scripts format",
+      "lint": "ts-scripts lint",
+      "prepare": "ts-scripts install && npm run build",
+      "size": "size-limit",
+      "specs": "ts-scripts specs",
+      "test": "ts-scripts test && npm run size"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/promaphore",
+    "name": "promaphore",
+    "version": "1.0.0",
+    "license": "MIT",
+    "integrity": "sha512-Eg8401+KJddVvDULkpy8bR964GMX8xMPegL6NdxTeBH2Wa3L86cZlEHizbkFJikr5u+E3wFoR5dLWJ+1OPyEfw==",
+    "resolved": "https://registry.npmjs.org/promaphore/-/promaphore-1.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/proxy-addr",
+    "name": "proxy-addr",
+    "version": "2.0.8",
+    "license": "MIT",
+    "integrity": "sha512-5nnx0yGyVUcY6t9RnWcARWtwT9F1D8O9rt08htPvnd49W1IgZtmLkhu9WfMzQj1cFxjHIO6connUNVW5k7AVyQ==",
+    "resolved": "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.8.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/punycode",
+    "name": "punycode",
+    "version": "2.3.1",
+    "license": "MIT",
+    "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==",
+    "resolved": "https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "mocha tests",
+      "build": "node scripts/prepublish.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/qs",
+    "name": "qs",
+    "version": "6.16.0",
+    "license": "BSD-3-Clause",
+    "integrity": "sha512-h6fhOIaRrID2CbEY2fqs+7t+UXZo+MLAnU5gRIq85uFtdiUPCdsApMlHhXogKVM4HM2DVbIjGNTTYH2OcmP1vA==",
+    "resolved": "https://registry.npmjs.org/qs/-/qs-6.16.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated && npm run dist",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "pretest": "npm run --silent readme && npm run --silent lint",
+      "test": "npm run tests-only",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "readme": "evalmd README.md",
+      "postlint": "eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git' | grep -v dist/)",
+      "lint": "eslint .",
+      "dist": "mkdirp dist && browserify --standalone Qs -g unassertify -g @browserify/envify -g [@browserify/uglifyify --mangle.keep_fnames --compress.keep_fnames --format.indent_level=1 --compress.arrows=false --compress.passes=4 --compress.typeofs=false] -p common-shakeify -p bundle-collapser/plugin lib/index.js > dist/qs.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/range-parser",
+    "name": "range-parser",
+    "version": "1.3.0",
+    "license": "MIT",
+    "integrity": "sha512-hek2mFQpPuI4E1BBKrSto+BU3e3x4xuarsbiwr3+lf7p44juvFMV0XFWQAP3xUyqXA4RrXLIoaSUGbSt056ZMw==",
+    "resolved": "https://registry.npmjs.org/range-parser/-/range-parser-1.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint --plugin markdown --ext js,md .",
+      "test": "mocha --reporter spec",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/raw-body",
+    "name": "raw-body",
+    "version": "3.0.2",
+    "license": "MIT",
+    "integrity": "sha512-K5zQjDllxWkf7Z5xJdV0/B0WTNqx6vxG70zJE4N0kBs4LovmEYWJzQGxC9bS9RAKu3bgM40lrd5zoLJ12MQ5BA==",
+    "resolved": "https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint",
+      "lint:fix": "eslint --fix",
+      "test": "mocha --trace-deprecation --reporter spec --check-leaks test/",
+      "test:ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test:cov": "nyc --reporter=html --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/require-addon",
+    "name": "require-addon",
+    "version": "1.3.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-j8pifaPNZI7ShKY3ihXZwF0qaEjua8zmlqPvDil0a8SBnyRvjCbAiEQuzO0UcoXH1sqU5U/ilXSjYd1W5NYwAA==",
+    "resolved": "https://registry.npmjs.org/require-addon/-/require-addon-1.3.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write . && lunte --fix",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:bare && npm run test:node",
+      "test:bare": "brittle-bare --coverage test.js",
+      "test:node": "brittle-node --coverage test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/require-from-string",
+    "name": "require-from-string",
+    "version": "2.0.2",
+    "license": "MIT",
+    "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==",
+    "resolved": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "mocha"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/router",
+    "name": "router",
+    "version": "2.2.0",
+    "license": "MIT",
+    "integrity": "sha512-nLTrUKm2UyiL7rlhapu/Zl45FwNgkZGaCpZbIHajDYgwlJCOzLSk+cIPAnsEqV955GjILJnKbdQC1nVPz+gAYQ==",
+    "resolved": "https://registry.npmjs.org/router/-/router-2.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "standard",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test:debug": "mocha --reporter spec --bail --check-leaks test/ --inspect --inspect-brk",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/safer-buffer",
+    "name": "safer-buffer",
+    "version": "2.1.2",
+    "license": "MIT",
+    "integrity": "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==",
+    "resolved": "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "browserify-test": "browserify --external tape tests.js > browserify-tests.js && tape browserify-tests.js",
+      "test": "standard && tape tests.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/send",
+    "name": "send",
+    "version": "1.2.1",
+    "license": "MIT",
+    "integrity": "sha512-1gnZf7DFcoIcajTjTwjwuDjzuz4PPcY2StKPlsGAQ1+YH20IRVrBaXSWmdjowTJ6u8Rc01PoYOGHXfP1mYcZNQ==",
+    "resolved": "https://registry.npmjs.org/send/-/send-1.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --check-leaks --reporter spec",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/serve-static",
+    "name": "serve-static",
+    "version": "2.2.1",
+    "license": "MIT",
+    "integrity": "sha512-xRXBn0pPqQTVQiC8wyQrKs2MOlX24zQ0POGaj0kultvoOCstBQM5yvOhAVSUwOMjQtTvsPWoNCHfPGwaaQJhTw==",
+    "resolved": "https://registry.npmjs.org/serve-static/-/serve-static-2.2.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/setprototypeof",
+    "name": "setprototypeof",
+    "version": "1.2.0",
+    "license": "ISC",
+    "integrity": "sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==",
+    "resolved": "https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "standard && mocha",
+      "testallversions": "npm run node010 && npm run node4 && npm run node6 && npm run node9 && npm run node11",
+      "testversion": "docker run -it --rm -v $(PWD):/usr/src/app -w /usr/src/app node:${NODE_VER} npm install mocha@${MOCHA_VER:-latest} && npm t",
+      "node010": "NODE_VER=0.10 MOCHA_VER=3 npm run testversion",
+      "node4": "NODE_VER=4 npm run testversion",
+      "node6": "NODE_VER=6 npm run testversion",
+      "node9": "NODE_VER=9 npm run testversion",
+      "node11": "NODE_VER=11 npm run testversion",
+      "prepublishOnly": "npm t",
+      "postpublish": "git push origin && git push origin --tags"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/side-channel",
+    "name": "side-channel",
+    "version": "1.1.1",
+    "license": "MIT",
+    "integrity": "sha512-6x6dK6zJdpTzF4sQeNYxwtvBzf6Eg4GtlesS94HOvTudUeyK2WXAaIfmDgsyslYrRBeFIlsi54AYsFGUuhmvrQ==",
+    "resolved": "https://registry.npmjs.org/side-channel/-/side-channel-1.1.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prelint": "eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git')",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/side-channel-list",
+    "name": "side-channel-list",
+    "version": "1.0.1",
+    "license": "MIT",
+    "integrity": "sha512-mjn/0bi/oUURjc5Xl7IaWi/OJJJumuoJFQJfDDyO46+hBWsfaVM65TBHq2eoZBhzl9EchxOijpkbRC8SVBQU0w==",
+    "resolved": "https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prelint": "evalmd README.md && eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git')",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>= 10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/side-channel-map",
+    "name": "side-channel-map",
+    "version": "1.0.1",
+    "license": "MIT",
+    "integrity": "sha512-VCjCNfgMsby3tTdo02nbjtM/ewra6jPHmpThenkTYh8pG9ucZ/1P8So4u4FGBek/BjpOVsDCMoLA/iuBKIFXRA==",
+    "resolved": "https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prelint": "evalmd README.md && eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git')",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>= 10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/side-channel-weakmap",
+    "name": "side-channel-weakmap",
+    "version": "1.0.2",
+    "license": "MIT",
+    "integrity": "sha512-WPS/HvHQTYnHisLo9McqBHOJk2FkHO/tlpvldyrnem4aeQp4hai3gythswg6p01oSoTl58rcpiFAjF2br2Ak2A==",
+    "resolved": "https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepack": "npmignore --auto --commentLines=autogenerated",
+      "prepublishOnly": "safe-publish-latest",
+      "prepublish": "not-in-publish || npm run prepublishOnly",
+      "prelint": "eclint check $(git ls-files | xargs find 2> /dev/null | grep -vE 'node_modules|\\.git')",
+      "lint": "eslint --ext=js,mjs .",
+      "postlint": "tsc -p . && attw -P",
+      "pretest": "npm run lint",
+      "tests-only": "nyc tape 'test/**/*.js'",
+      "test": "npm run tests-only",
+      "posttest": "npx npm@'>=10.2' audit --production",
+      "version": "auto-changelog && git add CHANGELOG.md",
+      "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/sodium-native",
+    "name": "sodium-native",
+    "version": "5.1.0",
+    "license": "MIT",
+    "integrity": "sha512-3RxgyWyJlhTsABPnJVpCI5CoTDANZTqqFrEPqr+kjfnRaBihpVtMUE3yTF40ukdoB1APXeoBNKF3MzZAIHg39g==",
+    "resolved": "https://registry.npmjs.org/sodium-native/-/sodium-native-5.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "prettier . --check && npm run test:node && npm run test:bare",
+      "test:node": "node test/all.js",
+      "test:bare": "bare test/all.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/sodium-universal",
+    "name": "sodium-universal",
+    "version": "5.0.1",
+    "license": "MIT",
+    "integrity": "sha512-rv+aH+tnKB5H0MAc2UadHShLMslpJsc4wjdnHRtiSIEYpOetCgu8MS4ExQRia+GL/MK3uuCyZPeEsi+J3h+Q+Q==",
+    "resolved": "https://registry.npmjs.org/sodium-universal/-/sodium-universal-5.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "prepublish": "./build-scripts/generate.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/statuses",
+    "name": "statuses",
+    "version": "2.0.2",
+    "license": "MIT",
+    "integrity": "sha512-DvEy55V3DB7uknRo+4iOGT5fP1slR8wQohVdknigZPMpMstaKJQWhwiYBACJE3Ul2pTnATihhBYnRhZQHGBiRw==",
+    "resolved": "https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build": "node scripts/build.js",
+      "fetch": "node scripts/fetch-apache.js && node scripts/fetch-iana.js && node scripts/fetch-nginx.js && node scripts/fetch-node.js",
+      "lint": "eslint --plugin markdown --ext js,md .",
+      "test": "mocha --reporter spec --check-leaks --bail test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "update": "npm run fetch && npm run build",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/streamx",
+    "name": "streamx",
+    "version": "2.28.1",
+    "license": "MIT",
+    "integrity": "sha512-zEzXb0s5Cds7tqMH6rhZ05lcJydCWiQPEwiNngVqzsxCc962vLY4Uw+mW7od8kDH258k2Uz/JrOkdIAAhSh9VA==",
+    "resolved": "https://registry.npmjs.org/streamx/-/streamx-2.28.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier . --write",
+      "test": "brittle test/all.js && brittle-bare test/all.js",
+      "lint": "prettier . --check && lunte"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/teex",
+    "name": "teex",
+    "version": "1.0.1",
+    "license": "MIT",
+    "integrity": "sha512-eYE6iEI62Ni1H8oIa7KlDU6uQBtqr4Eajni3wX7rpfXD8ysFx8z0+dri+KWEPWpBsxXfxu58x/0jvTVT1ekOSg==",
+    "resolved": "https://registry.npmjs.org/teex/-/teex-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "standard && tape test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/text-decoder",
+    "name": "text-decoder",
+    "version": "1.2.7",
+    "license": "Apache-2.0",
+    "integrity": "sha512-vlLytXkeP4xvEq2otHeJfSQIRyWxo/oZGEbXrtEEF9Hnmrdly59sUbzZ/QgyWuLYHctCHxFF4tRQZNQ9k60ExQ==",
+    "resolved": "https://registry.npmjs.org/text-decoder/-/text-decoder-1.2.7.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write .",
+      "lint": "prettier --check . && lunte",
+      "test": "npm run test:node && npm run test:bare",
+      "test:node": "brittle-node test.js",
+      "test:bare": "brittle-bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/toidentifier",
+    "name": "toidentifier",
+    "version": "1.0.1",
+    "license": "MIT",
+    "integrity": "sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==",
+    "resolved": "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test",
+      "version": "node scripts/version-history.js && git add HISTORY.md"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/tslib",
+    "name": "tslib",
+    "version": "2.7.0",
+    "license": "0BSD",
+    "integrity": "sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==",
+    "resolved": "https://registry.npmjs.org/tslib/-/tslib-2.7.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/tweetnacl",
+    "name": "tweetnacl",
+    "version": "1.0.3",
+    "license": "Unlicense",
+    "integrity": "sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==",
+    "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-1.0.3.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "build": "uglifyjs nacl.js -c -m -o nacl.min.js && uglifyjs nacl-fast.js -c -m -o nacl-fast.min.js",
+      "test-node": "tape test/*.js | faucet",
+      "test-node-all": "make -C test/c && tape test/*.js test/c/*.js | faucet",
+      "build-test-browser": "browserify test/browser/init.js test/*.js | uglifyjs -c -m -o test/browser/_bundle.js 2>/dev/null && browserify test/browser/init.js test/*.quick.js | uglifyjs -c -m -o test/browser/_bundle-quick.js 2>/dev/null",
+      "test": "npm run test-node-all",
+      "bench": "node test/benchmark/bench.js",
+      "lint": "eslint nacl.js nacl-fast.js test/*.js test/benchmark/*.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/type-is",
+    "name": "type-is",
+    "version": "2.1.0",
+    "license": "MIT",
+    "integrity": "sha512-faYHw0anBbc/kWF3zFTEnxSFOAGUX9GFbOBthvDdLsIlEoWOFOtS0zgCiQYwIskL9iGXZL3kAXD8OoZ4GmMATA==",
+    "resolved": "https://registry.npmjs.org/type-is/-/type-is-2.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "lint": "eslint .",
+      "test": "mocha --reporter spec --check-leaks --bail test/",
+      "test:debug": "mocha --reporter spec --check-leaks --inspect --inspect-brk test/",
+      "test-ci": "nyc --reporter=lcovonly --reporter=text npm test",
+      "test-cov": "nyc --reporter=html --reporter=text npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/type-is/node_modules/content-type",
+    "name": "content-type",
+    "version": "2.1.0",
+    "license": "MIT",
+    "integrity": "sha512-mj7UPXE0jaqaOsukNZRUEfEi2AcL7C/vwmwcHV0O97eO1E1pxBZuyjlZrx5seTaNBg1U6+o35wpa35Qfcc+7ag==",
+    "resolved": "https://registry.npmjs.org/content-type/-/content-type-2.1.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "vitest bench",
+      "build": "ts-scripts build",
+      "format": "ts-scripts format",
+      "prepare": "ts-scripts install && npm run build",
+      "specs": "ts-scripts specs",
+      "test": "ts-scripts test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/undici-types",
+    "name": "undici-types",
+    "version": "6.19.8",
+    "license": "MIT",
+    "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==",
+    "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-6.19.8.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/unpipe",
+    "name": "unpipe",
+    "version": "1.0.0",
+    "license": "MIT",
+    "integrity": "sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==",
+    "resolved": "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+      "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/vary",
+    "name": "vary",
+    "version": "1.1.2",
+    "license": "MIT",
+    "integrity": "sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==",
+    "resolved": "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "node benchmark/index.js",
+      "lint": "eslint --plugin markdown --ext js,md .",
+      "test": "mocha --reporter spec --bail --check-leaks test/",
+      "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+      "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/viem",
+    "name": "viem",
+    "version": "2.57.2",
+    "license": "MIT",
+    "integrity": "sha512-ZbPvu+5fvRsbFh+OymDz0GyEySsSco8GWrEAiHM4ckhEY1vJTPy0tcLVkn0cs70dPiUOjLxkQBnfVyt9YkJ7cA==",
+    "resolved": "https://registry.npmjs.org/viem/-/viem-2.57.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": null,
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/viem/node_modules/@noble/curves",
+    "name": "@noble/curves",
+    "version": "1.9.1",
+    "license": "MIT",
+    "integrity": "sha512-k11yZxZg+t+gWvBbIswW0yoJlu8cHOC7dhunwOzoWH/mXGBiYyR4YY6hAEK/3EUs4UpB8la1RfdRpeGsFHkWsA==",
+    "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.9.1.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "bench": "npm run bench:install; cd benchmark; node secp256k1.js; node curves.js; node utils.js; node bls.js",
+      "bench:install": "cd benchmark; npm install; npm install .. --install-links",
+      "build": "tsc && tsc -p tsconfig.cjs.json",
+      "build:release": "npx jsbt esbuild test/build",
+      "build:clean": "rm {.,esm,abstract,esm/abstract}/*.{js,d.ts,d.ts.map,js.map} 2> /dev/null",
+      "lint": "prettier --check 'src/**/*.{js,ts}' 'test/*.js'",
+      "format": "prettier --write 'src/**/*.{js,ts}' 'test/*.js'",
+      "test": "node test/index.js",
+      "test:bun": "bun test/index.js",
+      "test:deno": "deno --allow-env --allow-read test/index.js",
+      "test:coverage": "npm install --no-save c8@10.1.2 && npx c8 npm test"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/which-runtime",
+    "name": "which-runtime",
+    "version": "1.4.0",
+    "license": "Apache-2.0",
+    "integrity": "sha512-0ugbP4CJW4e2D20jvEcC4973dCgIaHI4Rw1PT+26U9zEve7FyYdWAIwUnoeOYvoCfn+wXHoHTKb1KhkYlb60Pw==",
+    "resolved": "https://registry.npmjs.org/which-runtime/-/which-runtime-1.4.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "format": "prettier --write .",
+      "lint": "prettier --check . && lunte .",
+      "test": "npm run test:node && npm run test:bare",
+      "test:node": "brittle-node test.js",
+      "test:bare": "brittle-bare test.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/wrappy",
+    "name": "wrappy",
+    "version": "1.0.2",
+    "license": "ISC",
+    "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==",
+    "resolved": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "tap --coverage test/*.js"
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/ws",
+    "name": "ws",
+    "version": "8.21.0",
+    "license": "MIT",
+    "integrity": "sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g==",
+    "resolved": "https://registry.npmjs.org/ws/-/ws-8.21.0.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "test": "nyc --reporter=lcov --reporter=text mocha --throw-deprecation test/*.test.js",
+      "integration": "mocha --throw-deprecation test/*.integration.js",
+      "lint": "eslint . && prettier --check --ignore-path .gitignore \"**/*.{json,md,yaml,yml}\""
+    },
+    "nativeBinding": false
+  },
+  {
+    "path": "node_modules/zod",
+    "name": "zod",
+    "version": "4.6.5",
+    "license": "MIT",
+    "integrity": "sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==",
+    "resolved": "https://registry.npmjs.org/zod/-/zod-4.6.5.tgz",
+    "deprecated": null,
+    "hasInstallScript": null,
+    "scripts": {
+      "clean": "git clean -xdf . -e node_modules",
+      "build": "nub exec --node zshy --project tsconfig.build.json",
+      "postbuild": "nub ../../scripts/write-stub-package-jsons.ts && nub exec --node biome check --write .",
+      "test:watch": "nub exec --node vitest",
+      "test": "nub exec --node vitest run",
+      "prepublishOnly": "nub ../../scripts/check-versions.ts"
+    },
+    "nativeBinding": false
+  }
+]

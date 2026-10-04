@@ -1,0 +1,41 @@
+{
+  "name": "@x402/core",
+  "version": "2.28.0",
+  "repository": "https://github.com/x402-foundation/x402",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint . --ext .ts --fix",
+    "test": "vitest run --coverage",
+    "build": "tsup && node ../../scripts/mirror-cjs-dts.mjs",
+    "start": "tsx --env-file=.env index.ts",
+    "watch": "tsc --watch",
+    "format": "prettier -c .prettierrc --write \"**/*.{ts,js,cjs,json,md}\"",
+    "lint:check": "eslint . --ext .ts",
+    "test:watch": "vitest",
+    "format:check": "prettier -c .prettierrc --check \"**/*.{ts,js,cjs,json,md}\"",
+    "test:integration": "vitest run test/integrations"
+  },
+  "dist": {
+    "shasum": "22ed0e4e49fdd3dda30b0d6a93289b647f46b533",
+    "tarball": "https://registry.npmjs.org/@x402/core/-/core-2.28.0.tgz",
+    "fileCount": 72,
+    "integrity": "sha512-Da/7zKxCKqpBoB4Msc9tFgkAv7tJTD8nG+DSSm+QdXAyJS4PQsmgVSKe17rDJTtlu0pwNbLcOje6MyQ6kaDkig==",
+    "signatures": [
+      {
+        "sig": "MEUCIQD8l/YvTt8MN9+FOJjDONuIxsn4AIDQ6pyGW+P6VBWunAIgN1WVguVXkPG+kjMTHc5bBWT2XUthAfEjNqqW4R/giSE=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEQCIB7IPiOyLBlPDPRwhoKyTOJpOhuCcA5gtik0NPfgrdE7AiAoCCrntL6tDUxtmtKYSYJVfEUocZ2W2NtoOB2InNj08w==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@x402%2fcore@2.28.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 1866534
+  }
+}

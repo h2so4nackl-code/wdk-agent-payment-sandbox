@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-04",
+  "node": "v24.16.0",
+  "npm": "11.13.0",
+  "typescript": "5.9.3",
+  "git": "No repository in project or parent; commit/status not applicable",
+  "runtimeTests": 102,
+  "core": 77,
+  "official": 25,
+  "baselineCommands": {
+    "test": 0,
+    "test:official": 0,
+    "test:all": 0,
+    "typecheck": 0,
+    "typecheck:signer": 2,
+    "lint": 0,
+    "build": 0,
+    "scan:secrets": 0
+  },
+  "packages": {
+    "@tetherto/wdk": "1.0.0-beta.18",
+    "@tetherto/wdk-wallet-evm": "1.0.0-beta.20",
+    "@x402/core": "2.28.0",
+    "@x402/evm": "2.28.0",
+    "@x402/fetch": "2.28.0",
+    "@x402/express": "2.28.0"
+  },
+  "hashes": {
+    "package-lock.json": "db6bc742ad8d2dc6c47c28b473291df209cc9a262b2b9b41a925b0f176dac3d5",
+    "integrations/wdk/package-lock.json": "89b019e6d63940715a0852290ef25ff07fd6b7720f1f19ad700e4e6c20739ab0",
+    "integrations/wdk/signer-compatibility.ts": "0e92083aba8854982feacc03fa00fa0a9390d0478a2ff7b7f7dddce12c37cf49"
+  }
+}
