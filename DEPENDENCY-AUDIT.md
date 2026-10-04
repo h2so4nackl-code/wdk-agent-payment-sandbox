@@ -22,9 +22,9 @@ No preinstall/install/postinstall hook or `binding.gyp` was found in the install
 - All six repositories exactly match tetherto or x402-foundation paths. Registry ECDSA signatures verify for all six using the published key set; SHA512 exists for every dependency lock entry and is enforced by npm/cache import. [Supply-chain result](evidence/public/supply-chain.json), [checker](scripts/check-supply-chain.mjs), [registry keys](https://registry.npmjs.org/-/npm/v1/keys).
 - SLSA attestation URLs are advertised; full provenance-chain validation remains **UNVERIFIED**, so no provenance endorsement is claimed. [Recorded metadata ](evidence/public/registry/).
 - Repository creation/activity/stars/forks/issues and current commit evidence were read from official GitHub APIs and recorded, not inferred from package similarity. [Repository evidence](https://api.github.com/repos/tetherto/wdk), [release/tag evidence](evidence/public/releases.json).
-- Lockfile preserved locally. There is no Git repository/commit or public push; do not claim the lockfile was committed. Optional lock SHA256: `89b019e6d63940715a0852290ef25ff07fd6b7720f1f19ad700e4e6c20739ab0`.
+- Both lockfiles are preserved in the local release-candidate Git snapshot. No remote/public push exists. Optional lock SHA256: `89b019e6d63940715a0852290ef25ff07fd6b7720f1f19ad700e4e6c20739ab0`.
 
-Overall advisory audit **PASS**. Supply-chain provenance beyond registry signatures/integrity: **REVIEW REQUIRED** before public distribution. Installed-component provenance is measurable; no broad third-party audit or Tether endorsement is asserted.
+Overall recorded advisory audit **PASS**. Supply-chain provenance beyond registry signatures/integrity remains **UNVERIFIED**, a disclosed publication warning reviewed in PUBLICATION-AUDIT.md. Installed-component provenance is measurable; no broad third-party audit or Tether endorsement is asserted.
 
 ## Installation history
 
