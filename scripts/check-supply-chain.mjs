@@ -1,5 +1,5 @@
 import { createPublicKey, verify } from 'node:crypto';
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 const keys = JSON.parse(readFileSync('evidence/public/registry/registry-signing-keys.json', 'utf8')).keys;
 const packages = [];
 for (const file of readdirSync('evidence/public/registry').filter(f => f.endsWith('-metadata.json'))) {
@@ -13,6 +13,7 @@ for (const file of readdirSync('evidence/public/registry').filter(f => f.endsWit
   const identity = repo.replace(/^git\+/, '').replace(/^git:\/\//, 'https://').replace(/\.git$/, '') === `https://${expected}`;
   packages.push({ name: m.name, version: m.version, repository: repo, identity, integrity: m.dist.integrity, registrySignatureValid: signatures.some(Boolean), attestationsAvailable: Boolean(m.dist.attestations), provenanceVerified: false, installScripts: ['preinstall','install','postinstall'].filter(k => m.scripts?.[k]) });
 }
+mkdirSync('evidence/integration', { recursive: true });
 writeFileSync('evidence/integration/supply-chain.json', JSON.stringify(packages, null, 2));
 console.log(JSON.stringify(packages.map(p => ({ name: p.name, version: p.version, identity: p.identity, registrySignatureValid: p.registrySignatureValid }))));
 if (packages.length !== 6 || packages.some(p => !p.identity || !p.registrySignatureValid || p.installScripts.length)) process.exitCode = 1;
