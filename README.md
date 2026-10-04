@@ -1,5 +1,7 @@
 # WDK Agent Payment Sandbox
 
+[![Local sandbox conformance](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/actions/workflows/conformance.yml/badge.svg?branch=main)](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/actions/workflows/conformance.yml)
+
 **Security-focused WDK/x402 conformance and policy sandbox for agentic payments.**
 
 An autonomous agent can encounter a payment request while fetching data. A successful wallet demo does not show whether a malicious challenge, retry, substituted recipient or delayed authorization can cause an unintended payment. This project makes those boundaries executable: a Policy Engine sits above execution, and an adversarial conformance harness checks both allowed and rejected flows.
