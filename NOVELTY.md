@@ -2,7 +2,7 @@
 
 Classification: **PARTIALLY_DUPLICATED**. Checked 2026-10-03; source URLs and transport limits in RESEARCH.md.
 
-Updated 2026-10-04: the installed WDK core beta.18 already includes registerPolicy/governed account APIs, and official x402 core 2.28.0 includes spend controls. This strengthens the duplication finding for generic payment governors. Reuse official client/wallet functionality and retain the differentiator: security-focused conformance/testing sandbox with hostile inputs, local simulated settlement and measured declaration drift. [Pinned WDK core source](https://github.com/tetherto/wdk/tree/a112c38a9a2bdcf4525961812a712591d1470118), [installed x402 client source](integrations/wdk/node_modules/@x402/core/dist/esm/client/index.mjs), [integration record](UPSTREAM-INTEGRATION.md).
+Updated 2026-10-04: the installed WDK core beta.18 already includes registerPolicy/governed account APIs, and official x402 core 2.28.0 includes spend controls. This strengthens the duplication finding for generic payment governors. Reuse official client/wallet functionality and retain the differentiator: security-focused conformance/testing sandbox with hostile inputs, local simulated settlement and measured declaration drift. [Pinned WDK core source](https://github.com/tetherto/wdk/tree/a112c38a9a2bdcf4525961812a712591d1470118), [installed x402 client source](https://registry.npmjs.org/@x402/core/-/core-2.28.0.tgz), [integration record](UPSTREAM-INTEGRATION.md).
 
 | Comparator | Overlap | Design response |
 |---|---|---|
