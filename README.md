@@ -6,7 +6,7 @@
 
 An autonomous agent can encounter a payment request while fetching data. A successful wallet demo does not show whether a malicious challenge, retry, substituted recipient or delayed authorization can cause an unintended payment. This project makes those boundaries executable: a Policy Engine sits above execution, and an adversarial conformance harness checks both allowed and rejected flows.
 
-**Working release candidate:** 136/136 runtime tests, including 34/34 new signer-adapter tests. Official Tether WDK core/EVM and x402 Foundation packages are exercised locally. No wallet funding, real credentials, mainnet or blockchain broadcast is required. Public publishing has not yet been authorized.
+**Working release candidate:** 136/136 runtime tests, including 34/34 new signer-adapter tests. Official Tether WDK core/EVM and x402 Foundation packages are exercised locally. No wallet funding, real credentials, mainnet or blockchain broadcast is required. The source repository is public. Publication does not expand the supported sandbox profile or authorize real payments.
 
 ## Quick start: offline mock sandbox
 
@@ -87,7 +87,7 @@ node scripts/check-supply-chain.mjs
 
 Lint is a dependency-minimal AST/syntax check, not ESLint. Pattern scans are heuristic. Current online npm audit reports show zero known critical/high/reachable vulnerabilities; this is not a formal audit or security certification. Exact official package names, repositories, locks, archive integrity and registry signatures are recorded in evidence/public/. Full native build/SLSA provenance is not asserted. [Dependency review](DEPENDENCY-AUDIT.md).
 
-The locally prepared manual GitHub Actions workflow targets Ubuntu 26.04 and windows-latest, installs with scripts disabled and needs no secrets. Windows local reproduction is verified; hosted Ubuntu/Windows CI has not run. Public action permission is still required. [Publication audit](PUBLICATION-AUDIT.md).
+The manual GitHub Actions workflow targets Ubuntu 26.04 and windows-latest, installs with scripts disabled and needs no secrets. Windows local reproduction is verified; hosted Ubuntu/Windows conformance passed on main at commit 636d6a94fc25dabe88a97c35a22df0c527c4d7c0 ([run 37224889693](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/actions/runs/37224889693)). [Publication audit](PUBLICATION-AUDIT.md).
 
 Use npm run reproduce then npm run reproduce:official when a verified project-local npm cache exists. Release validation additionally checks a clean archive of an exact local Git commit: npm run reproduce:git (receipt written locally to evidence/release/committed-snapshot.json). No public repository URL is fabricated. Raw machine-specific historical logs/caches remain local and excluded; public evidence is explicitly curated.
 
@@ -108,4 +108,4 @@ No third-party wallet wrapper/community facilitator is used. No Tether endorseme
 
 src/ — policy, gateway, mock x402 client/server and demo. tests/ — 77 core tests. integrations/wdk/ — pinned official profile, strict signer adapter and 59 tests. scripts/ — quality/reproduction/acquisition tools. evidence/public/ — curated public results, provenance and frozen mismatch evidence. .github/workflows/ — prepared CI. Root Markdown files — architecture, security, compatibility, release and grant package.
 
-[License](LICENSE) · [Third-party notices](THIRD-PARTY-NOTICES.md) · [Maintenance proposal](MAINTENANCE.md) · [Grant deliverables](GRANT-DELIVERABLES.md). Public release, hosted CI, issue submission and grant submission each require explicit owner authorization.
+[License](LICENSE) · [Third-party notices](THIRD-PARTY-NOTICES.md) · [Maintenance proposal](MAINTENANCE.md) · [Grant deliverables](GRANT-DELIVERABLES.md). The owner has authorized hosted CI and publication of v0.1.0 after successful conformance on the release snapshot. Issue submission and grant submission each require separate explicit owner authorization.
