@@ -1,8 +1,10 @@
 # Application form package — project evidence updated 2026-10-06
 
+**Application status corrected 2026-10-06:** Submitted on 2026-10-04 after owner authorization and terms acceptance. The retained submission confirmation is the Tether “Thank you!” screen (`tether-submitted-1791128177695.jpg`); applicant/contact details and the submitted copy remain private. Submission is not grant approval, funding, payment or a Tether commission. No duplicate application has been submitted. The later v0.1.0 release/CI evidence and upstream #133 are project updates, not claimed amendments to the submitted form.
+
 **Public evidence checked 2026-10-06:** [repository](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox); [v0.1.0](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/releases/tag/v0.1.0), published 2026-10-05, snapshot `2e04dba65132f5e0790fcc56c52f10712581bd5a`; [Local sandbox conformance run 37288753892](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/actions/runs/37288753892), PASS on Ubuntu 26.04 and Windows. Release evidence: 77 core + 59 official-profile = 136 runtime tests; 34 adapter tests are a subset. Verification is local and cryptographic; settlement is simulated. No mainnet, blockchain broadcast, real credentials or real funds. This independent project does not claim work commissioned by Tether or Tether endorsement.
 
-Form observations below are historical observations from 2026-10-04; the form and terms were not reverified in this update.
+The early read-only observations below predate the later owner-authorized terms acceptance and submission on 2026-10-04. FORM FIELD UNVERIFIED labels describe that historical mapping, not an incomplete current application. The live form and terms were not reverified in this update.
 
 ## A. VERIFIED FIELD OBSERVATIONS — 2026-10-04
 
@@ -16,7 +18,7 @@ The heading is Submit a proposal and a Next button is visible. Neither the agree
 
 ## B. PREPARED ANSWERS
 
-The following topics are reusable prepared copy. Except the agreement in section A, every topic below has status **FORM FIELD UNVERIFIED**: it is not claimed to be an observed current form field. Re-map only after the owner reviews/accepts terms and the actual remaining fields can be inspected. Do not submit placeholders.
+The following topics are reusable prepared copy. Except the agreement in section A, every topic below has status **FORM FIELD UNVERIFIED**: it is not claimed to be an observed current form field. The application was subsequently completed and submitted with owner-supplied details. These prepared topics are not an exact archive of the submitted form and do not establish the current live schema.
 
 ### Project Name
 
@@ -34,7 +36,7 @@ Security-focused WDK/x402 conformance and policy sandbox for agentic payments.
 
 FORM FIELD UNVERIFIED
 
-OWNER DECISION REQUIRED: legal applicant/team and authorized representative. No identities inferred.
+Owner-supplied applicant details were used in the submitted application; private identity details are not reproduced here.
 
 ### Project URL
 
@@ -136,19 +138,19 @@ Apache-2.0 project source with separate upstream notices, locked dependencies, d
 
 FORM FIELD UNVERIFIED
 
-OWNER DECISION REQUIRED. Proposed bounded options: 3 months×4h, 6 months×8h or 12 months×12h; no 24/7 support/SLA. See MAINTENANCE.md.
+Submitted scope: four weeks of bounded maintenance/conformance, 48 planned hours within the 96-hour total; no 24/7 support/SLA. Earlier options are historical proposals.
 
 ### Budget
 
 FORM FIELD UNVERIFIED
 
-PROJECT-LEAD REVIEW REQUIRED. Three internal scenarios in GRANT-BUDGET.md; no final requested amount chosen. Completed work valuation is separated from prospective work/maintenance.
+Owner-approved submitted request: 8,280 USDt. See GRANT-BUDGET.md for the submitted calculation and separately retained historical scenarios.
 
 ### Timeline
 
 FORM FIELD UNVERIFIED
 
-Publication and hosted validation are completed. Remaining feedback/maintenance timeline is an OWNER/PROJECT-LEAD DECISION; the earlier 2–4-week rollout estimate is not a remaining-work deadline.
+Submitted proposed period: less than one month / four weeks from an agreed start, 96 planned hours (24h/week). Grant acceptance/start date are not confirmed. The earlier rollout estimate is historical.
 
 ### Applicant Background
 
@@ -160,4 +162,4 @@ Demonstrable evidence is this working implementation/test/reproduction record. N
 
 FORM FIELD UNVERIFIED
 
-OWNER DECISION REQUIRED. No private email/phone is inferred or inserted.
+Owner-supplied contact was used for submission; private contact details are not reproduced here.

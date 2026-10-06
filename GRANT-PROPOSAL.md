@@ -1,5 +1,7 @@
 # WDK Agent Payment Sandbox — grant proposal candidate
 
+**Application status corrected 2026-10-06:** Submitted on 2026-10-04 after owner authorization and terms acceptance. The retained submission confirmation is the Tether “Thank you!” screen (`tether-submitted-1791128177695.jpg`); applicant/contact details and the submitted copy remain private. Submission is not grant approval, funding, payment or a Tether commission. No duplicate application has been submitted. The later v0.1.0 release/CI evidence and upstream #133 are project updates, not claimed amendments to the submitted form.
+
 **Public evidence checked 2026-10-06:** [repository](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox); [v0.1.0](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/releases/tag/v0.1.0), published 2026-10-05, snapshot `2e04dba65132f5e0790fcc56c52f10712581bd5a`; [Local sandbox conformance run 37288753892](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/actions/runs/37288753892), PASS on Ubuntu 26.04 and Windows. Release evidence: 77 core + 59 official-profile = 136 runtime tests; 34 adapter tests are a subset. Verification is local and cryptographic; settlement is simulated. No mainnet, blockchain broadcast, real credentials or real funds. This independent project does not claim work commissioned by Tether or Tether endorsement.
 
 ## Executive summary
@@ -36,16 +38,16 @@ GRANT-DELIVERABLES.md defines four measurable milestones with completed/future s
 
 ## Open-source and ecosystem benefit
 
-Apache-2.0 project source, distinct upstream/transitive notices, official pins/locks, public curated evidence, developer README and secret-free CI. A reusable harness helps developers establish allowed and denied behavior before adapting payment integrations. Repository and v0.1.0 are public. Applicant authority, contact, terms acceptance and grant submission remain separate owner decisions.
+Apache-2.0 project source, distinct upstream/transitive notices, official pins/locks, public curated evidence, developer README and secret-free CI. A reusable harness helps developers establish allowed and denied behavior before adapting payment integrations. Repository and v0.1.0 are public. Owner-supplied applicant/contact details, terms acceptance and submission authorization were used on 2026-10-04; no grant acceptance is inferred.
 
 ## Maintenance and funding
 
-MAINTENANCE.md proposes bounded options, not a promise: 3×4h, 6×8h or 12×12h. GRANT-BUDGET.md separates completed retrospective scope estimates from prospective release/CI/docs/supported engineering/maintenance, with LEAN/STANDARD/EXTENDED calculations. STANDARD is recommended for PROJECT-LEAD REVIEW; no final amount/duration selected. Publication and hosted validation are completed; remaining feedback/maintenance schedule, capacity and terms are separate unapproved decisions. No official custom-grant funding cap is invented.
+The owner-approved submitted request is **8,280 USDt over four weeks from an agreed start**, with **96 planned hours**: engineering 32h + documentation 16h + maintenance/conformance 48h. Calculation: 96 × 75 USD = 7,200 USD; 15% contingency = 1,080 USD; total = 8,280 USDt requested. These are prospective estimates, not recorded hours or official Tether rates; completed implementation/publication/CI are excluded. Award, start date and payment remain subject to a grant agreement. GRANT-BUDGET.md retains earlier scenarios as historical alternatives; they are not the submitted request. No official custom-grant funding cap is invented.
 
 ## Risks and limitations
 
 Beta/API/runner drift; process-local budgets/replay; native dependency trust and unverified full build provenance; restricted profile; no fair-exchange proof against dishonest sellers; public deterministic test material; hosted evidence limited to the tested Ubuntu/Windows release snapshot. Mitigate with locks, validation, retained compatibility fixtures, exact source-snapshot reproduction, scoped claims and approved maintenance. No mainnet readiness, full x402 coverage or financial security certification.
 
-## Application prerequisites
+## Application submission
 
-Owner supplies verified applicant/background/contact, legal eligibility/authority, budget/maintenance choice and terms review. The form section observed on 2026-10-04 begins with required terms agreement; later fields remain unverified because no agreement was accepted. APPLICATION-FORM-PACKAGE.md prepares reusable answers without inventing the schema. Publication and hosted CI are completed; #133 is submitted but unaccepted. Grant submission, legal/terms acceptance and any new external commitments require separate owner authorization.
+The owner supplied applicant/contact details, selected the submitted budget/period, accepted terms and authorized submission on 2026-10-04. The early read-only field mapping in APPLICATION-FORM-PACKAGE.md is historical. The submission confirmation is retained privately. #133 remains submitted but unaccepted upstream. New external commitments require separate owner authorization; neither grant acceptance nor payment is confirmed.
