@@ -1,6 +1,10 @@
-# Application form package — 2026-10-04
+# Application form package — project evidence updated 2026-10-06
 
-## A. VERIFIED CURRENT FIELDS
+**Public evidence checked 2026-10-06:** [repository](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox); [v0.1.0](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/releases/tag/v0.1.0), published 2026-10-05, snapshot `2e04dba65132f5e0790fcc56c52f10712581bd5a`; [Local sandbox conformance run 37288753892](https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/actions/runs/37288753892), PASS on Ubuntu 26.04 and Windows. Release evidence: 77 core + 59 official-profile = 136 runtime tests; 34 adapter tests are a subset. Verification is local and cryptographic; settlement is simulated. No mainnet, blockchain broadcast, real credentials or real funds. This independent project does not claim work commissioned by Tether or Tether endorsement.
+
+Form observations below are historical observations from 2026-10-04; the form and terms were not reverified in this update.
+
+## A. VERIFIED FIELD OBSERVATIONS — 2026-10-04
 
 Read-only sources: [official application page](https://tether.dev/grants/apply-for-a-grant/) links [Submit a proposal](https://forms.monday.com/forms/embed/d8a6c98afe75c562acea773eaa3ca3ed?r=euc1). Browser-rendered first section was inspected without filling/submitting anything.
 
@@ -36,13 +40,13 @@ OWNER DECISION REQUIRED: legal applicant/team and authorized representative. No 
 
 FORM FIELD UNVERIFIED
 
-Pending explicit publication approval; no public URL exists.
+Public project repository: https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox. Public release: https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox/releases/tag/v0.1.0. No separate hosted product/demo URL is claimed.
 
 ### GitHub URL
 
 FORM FIELD UNVERIFIED
 
-Pending approved remote repository creation; no URL fabricated.
+https://github.com/h2so4nackl-code/wdk-agent-payment-sandbox
 
 ### Problem
 
@@ -96,19 +100,19 @@ Default mock/no-money mode; limits and allowlists; explicit intent; authorizatio
 
 FORM FIELD UNVERIFIED
 
-136/136 runtime tests including 34/34 adapter subset; strict project typecheck/build/lint/scans and Windows locked-snapshot reproduction pass. Official WDK runtime and supported x402 profile pass. Linux hosted execution remains unverified; CI prepared only.
+136/136 runtime tests including 34/34 adapter subset; strict project typecheck/build/lint/scans and Windows locked-snapshot reproduction pass. Official WDK runtime and supported x402 profile pass. Hosted Ubuntu 26.04 and Windows conformance passed on the v0.1.0 snapshot; see the public run above. Local cryptographic verification and simulated settlement only.
 
 ### Deliverables
 
 FORM FIELD UNVERIFIED
 
-Four measurable milestones in GRANT-DELIVERABLES.md: accepted implementation; reviewed release candidate; approved hosted platform/upstream evidence; bounded maintenance/feedback. Completed and future work are labeled separately.
+Four measurable milestones in GRANT-DELIVERABLES.md: completed sandbox implementation; published v0.1.0; passing hosted platform evidence and proposed upstream feedback; future bounded maintenance/feedback. Completion is not grant acceptance. Completed and future work are labeled separately.
 
 ### Milestones
 
 FORM FIELD UNVERIFIED
 
-M1 completed implementation; M2 local candidate prepared/public rollout pending; M3 future authorized Windows/Ubuntu hosted validation and compatibility report; M4 future owner-approved maintenance.
+M1 completed implementation; M2 v0.1.0 published; M3 Windows/Ubuntu hosted validation completed, upstream proposal open/unaccepted; M4 future owner-approved maintenance.
 
 ### Testing
 
@@ -120,13 +124,13 @@ FORM FIELD UNVERIFIED
 
 FORM FIELD UNVERIFIED
 
-Not a new wallet or novel policy primitive. Differentiation is the combined WDK-specific security/conformance, compatibility and reproduction harness; overlap is disclosed. It detected a real published direct TypeScript mismatch for the installed pair while preserving runtime success and a validated project adapter.
+Not a new wallet or novel policy primitive. Differentiation is the combined WDK-specific security/conformance, compatibility and reproduction harness; overlap is disclosed. It detected a real published direct TypeScript mismatch for the installed pair while preserving runtime success and a validated project adapter. [tetherto/wdk-wallet-evm#133](https://github.com/tetherto/wdk-wallet-evm/pull/133) is an open, mergeable upstream proposal as checked 2026-10-06, not merged, accepted or released. Mergeability is not maintainer acceptance. It does not change the published package pair or this release's direct TypeScript mismatch.
 
 ### Open Source Plan
 
 FORM FIELD UNVERIFIED
 
-Apache-2.0 project source with separate upstream notices, locked dependencies, docs and prepared CI. Publish only after owner approval. No Tether endorsement claimed.
+Apache-2.0 project source with separate upstream notices, locked dependencies, docs and passing hosted CI. Repository and v0.1.0 are public. No Tether endorsement claimed.
 
 ### Maintenance
 
@@ -144,7 +148,7 @@ PROJECT-LEAD REVIEW REQUIRED. Three internal scenarios in GRANT-BUDGET.md; no fi
 
 FORM FIELD UNVERIFIED
 
-Proposed 2–4 weeks after authorization for release/hosted feedback, then selected maintenance option; unapproved estimate, not a committed schedule.
+Publication and hosted validation are completed. Remaining feedback/maintenance timeline is an OWNER/PROJECT-LEAD DECISION; the earlier 2–4-week rollout estimate is not a remaining-work deadline.
 
 ### Applicant Background
 
