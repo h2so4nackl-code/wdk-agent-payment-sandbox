@@ -71,7 +71,7 @@ node scripts/upstream-direct-evidence.mjs # Expected-diagnostic evidence gate
 npm run typecheck:upstream-direct        # Currently exits 2 with TS2322
 ```
 
-The negative fixture is not an ordinary success-required project compile. The evidence step reports drift if the known diagnostic disappears, prompting review after an upstream fix. A documentation-version clarification PR was found; it does not resolve the installed declaration mismatch. No issue was submitted or acknowledgment claimed. [Type gap](WDK-X402-TYPE-GAP.md), [unsubmitted issue draft](UPSTREAM-ISSUE-DRAFT.md).
+The negative fixture is not an ordinary success-required project compile. The evidence step reports drift if the known diagnostic disappears, prompting review after an upstream fix. As checked on 2026-10-07, [upstream issue #132](https://github.com/tetherto/wdk-wallet-evm/issues/132), submitted on 2026-10-04, is open. [PR #133](https://github.com/tetherto/wdk-wallet-evm/pull/133), opened on 2026-10-05, proposes the async `createX402Signer(account)` helper for `main`; it is open and unmerged, not a released fix or maintainer acceptance. The published `1.0.0-beta.20` package remains incompatible with direct strict TypeScript assignment to `ClientEvmSigner` with `@x402/evm` 2.28.0. The separate documentation-version clarification PR does not resolve that mismatch. [Type gap](WDK-X402-TYPE-GAP.md), [issue reproduction and status](UPSTREAM-ISSUE-DRAFT.md).
 
 ## Quality, reproducibility and CI
 

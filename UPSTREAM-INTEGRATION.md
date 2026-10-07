@@ -33,6 +33,10 @@ The Tether guide claims direct ClientEvmSigner compatibility. Runtime preparatio
 
 No community facilitator is installed or contacted. Tether explicitly disclaims endorsement/audit/responsibility for community modules and third-party facilitators. [Official guide](https://docs.wdk.tether.io/ai/x402/).
 
+## Upstream issue and proposed solution — checked 2026-10-07
+
+[Issue #132](https://github.com/tetherto/wdk-wallet-evm/issues/132), submitted on 2026-10-04, is open and reports the published direct strict TypeScript incompatibility. [PR #133](https://github.com/tetherto/wdk-wallet-evm/pull/133), opened on 2026-10-05, is open and unmerged; it proposes an async `createX402Signer(account)` helper for `main`, used with `toClientEvmSigner(await createX402Signer(account))`. This is a proposed upstream change, not a released fix or maintainer acceptance. The pinned published `1.0.0-beta.20` package remains incompatible with direct assignment to `ClientEvmSigner` from `@x402/evm` 2.28.0. No dependency, sandbox adapter or frozen evidence was updated for this status correction. The provenance and runtime results above retain their 2026-10-04 verification date.
+
 ## Supported project adapter (2026-10-04)
 
 Exact installed declarations were inspected member by member in WDK-X402-TYPE-GAP.md. Our WdkX402ClientSigner explicitly implements the required ClientEvmSigner surface using composition, validated address/signature guards and reconstructed EIP-3009 input. The normal project typecheck and positive adapter contract pass. No optional transaction/approval functionality is exposed. The direct raw account fixture still fails TS2322 with unchanged packages/locks; separate runtime crypto verification still passes. Current results: the accepted technical evidence in evidence/public/technical-summary.json. This is a project boundary, not an upstream patch.

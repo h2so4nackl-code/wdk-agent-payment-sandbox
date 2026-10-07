@@ -17,6 +17,10 @@ Declaration sources: **W** = integrations/wdk/node_modules/@tetherto/wdk-wallet-
 
 Address/signature discrepancies are declaration-width mismatches with equivalent validated runtime representations in this profile. The typed-data record width requires real validation/conversion: not every possible x402 input is supported. Transaction method differences are potentially semantic; this project does not claim compatibility for that optional functionality. The adapter is a project boundary, not a patch to Tether. No declaration edits, unsafe signer assertions, unrestricted types or checking suppressions are used.
 
+## Upstream status — checked 2026-10-07
+
+The published discrepancy is reported in [issue #132](https://github.com/tetherto/wdk-wallet-evm/issues/132), submitted on 2026-10-04 and still open. [PR #133](https://github.com/tetherto/wdk-wallet-evm/pull/133), opened on 2026-10-05, proposes async `createX402Signer(account)` for `main`: resolve `getAddress()`, validate address/signature hex and convert typed-data fields before use through `toClientEvmSigner`. It is open and unmerged, not a released fix or maintainer acceptance. The proposal keeps existing account declarations unchanged. The table and results here describe the pinned published `1.0.0-beta.20` / `@x402/evm` 2.28.0 pair, whose direct strict TypeScript assignment still fails; they are not measurements of the proposed helper. The sandbox adapter and frozen negative fixture remain unchanged.
+
 ## Supported contract and lifecycle
 
 WdkX402ClientSigner explicitly implements the installed ClientEvmSigner using a Pick of the two actual WDK account methods for composition/test doubles. Its constructor assignment compiles without casts in signer-adapter-compatibility.ts. await initialize() validates the asynchronously retrieved address before registering with x402. Reading address earlier fails closed. The signer exposes no transfer, approve, transaction-signing or broadcast method. Initialization is read-only.

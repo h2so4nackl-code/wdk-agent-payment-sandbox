@@ -1,4 +1,10 @@
-# Draft only — not submitted
+# Upstream issue reproduction and status
+
+## Current upstream status — checked 2026-10-07
+
+[Issue #132](https://github.com/tetherto/wdk-wallet-evm/issues/132) was submitted on 2026-10-04 and is open. [PR #133](https://github.com/tetherto/wdk-wallet-evm/pull/133), opened on 2026-10-05, is open and unmerged. It proposes an async `createX402Signer(account)` projection for `main`, used through `toClientEvmSigner(await createX402Signer(account))`. This is a proposed change, not a released fix or maintainer acceptance; the published `1.0.0-beta.20` package still fails direct strict TypeScript assignment with `@x402/evm` 2.28.0.
+
+The filename is retained for existing links. The reproduction below records the original draft environment; the pre-submission search is historical, not current issue status. Frozen diagnostics, fixtures and search evidence remain unchanged.
 
 ## Title
 WalletAccountEvm direct x402 ClientEvmSigner assignment fails with published TypeScript declarations
@@ -11,9 +17,9 @@ WalletAccountEvm direct x402 ClientEvmSigner assignment fails with published Typ
 - @x402/evm 2.28.0 (core/fetch/express also 2.28.0).
 - Reproduced locally on Windows; Linux/macOS not executed.
 
-## Existing issue search
+## Historical pre-submission issue search — 2026-10-04
 
-Read-only searches repeated immediately before release-draft finalization on 2026-10-04 covered open and closed relevant WDK/core/wallet/docs issues and PRs. No exact installed-version declaration report was found. Related [documentation PR #280](https://github.com/tetherto/wdk-docs/pull/280) is open and clarifies example versions beta.19/x402 2.26.0; inspected body/diff do not fix or report the beta.20/2.28.0 structural mismatch reproduced here. We do not infer behavior of that older example pair. The live guide read this run still describes direct usage without that version qualification; source/deployed docs may differ. Results: evidence/public/issue-search-release.json and related-docs-pr.json. This is a bounded search, not proof no differently worded report exists. No submission/acknowledgment is claimed.
+Read-only searches repeated immediately before release-draft finalization on 2026-10-04 covered open and closed relevant WDK/core/wallet/docs issues and PRs. No exact installed-version declaration report was found before #132 was submitted. Related [documentation PR #280](https://github.com/tetherto/wdk-docs/pull/280) was open at that check and clarifies example versions beta.19/x402 2.26.0; inspected body/diff do not fix or report the beta.20/2.28.0 structural mismatch reproduced here. We do not infer behavior of that older example pair. The guide read at that check still described direct usage without that version qualification; source/deployed docs may differ. Results: evidence/public/issue-search-release.json and related-docs-pr.json. This is a bounded historical search, not proof no differently worded report exists or a claim that the issue remains unsubmitted. No maintainer acknowledgment is claimed.
 
 ## Documentation context
 
