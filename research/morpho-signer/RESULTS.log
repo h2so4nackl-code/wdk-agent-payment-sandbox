@@ -1,0 +1,23 @@
+Node v24.22.1; linux/x64
+@tetherto/wdk-wallet-evm 1.0.0-beta.25
+@morpho-org/morpho-sdk 9.3.0
+viem 2.55.10
+ethers 6.15.0
+typescript 5.9.3
+PASS: signing-client adapter and Morpho consumer compile in strict TypeScript
+direct-negative.mts(6,3): error TS2740: Type 'WalletAccountEvm' is missing the following properties from type '{ account: Account | undefined; batch?: { multicall?: boolean | { batchSize?: number | undefined; deployless?: boolean | undefined; wait?: number | undefined; } | undefined; } | undefined; ... 42 more ...; extend: <const client extends { ...; } & ExactPartial<...>>(fn: (client: Client<...>) => client) => Client<...>...': account, cacheTime, chain, key, and 33 more.
+direct-negative.mts(9,20): error TS2345: Argument of type 'ClientSignerProjection' is not assignable to parameter of type 'AccountSource'.
+  Type 'ClientSignerProjection' is missing the following properties from type 'CustomSource': signMessage, signTransaction
+PASS: direct account/client and projection/toAccount boundaries retain expected TS2740 and TS2345
+PASS 1: bare projection is not a WalletClient; Morpho rejects its missing account
+PASS 2: original helper inside viem fails on injected EIP712Domain before backend signing
+PASS 3: Morpho Blue Authorization: real SDK requirement.sign -> viem -> projection -> WDK -> verified signature
+PASS 4: Permit2 SignatureTransfer: real SDK requirement.sign -> viem -> projection -> WDK -> verified signature
+PASS 5: changing Permit2 amount invalidates the signature
+PASS 6: wrong owner/account rejected before backend signing
+PASS 7: wrong declared chain rejected before backend signing
+PASS 8: signature from another key rejected by Morpho verification
+PASS 9: missing client account rejected
+PASS 10: message and transaction signing stay disabled
+RESULT: PASS; 10 offline runtime groups; no RPC, deployment, broadcast or real funds.
+RESULT: PASS (2 compiler checks and 10 offline runtime groups)
