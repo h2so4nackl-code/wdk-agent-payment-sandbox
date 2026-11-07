@@ -1,0 +1,140 @@
+Node v24.22.1; linux/x64
+@tetherto/wdk-wallet-evm 1.0.0-beta.25
+@x402/evm 2.28.0
+@nktkas/hyperliquid 0.33.3
+@morpho-org/morpho-sdk 9.3.0
+viem 2.55.10
+ethers 6.15.0
+typescript 5.9.3
+PASS: strict TypeScript core, viem wrapper and all three consumer interfaces
+TAP version 13
+# Subtest: async WDK source yields frozen two-field projection
+ok 1 - async WDK source yields frozen two-field projection
+  ---
+  duration_ms: 3.093369
+  type: 'test'
+  ...
+# Subtest: absent and canonical EIP712Domain yield the same digest and signature
+ok 2 - absent and canonical EIP712Domain yield the same digest and signature
+  ---
+  duration_ms: 16.999539
+  type: 'test'
+  ...
+# Subtest: optional domain omissions and salt are normalized without dropping signed fields
+ok 3 - optional domain omissions and salt are normalized without dropping signed fields
+  ---
+  duration_ms: 5.898922
+  type: 'test'
+  ...
+# Subtest: reject conflicting primaryType before backend signing
+ok 4 - reject conflicting primaryType before backend signing
+  ---
+  duration_ms: 1.098582
+  type: 'test'
+  ...
+# Subtest: reject incorrect EIP712Domain layout before backend signing
+ok 5 - reject incorrect EIP712Domain layout before backend signing
+  ---
+  duration_ms: 0.409374
+  type: 'test'
+  ...
+# Subtest: reject unknown domain key before backend signing
+ok 6 - reject unknown domain key before backend signing
+  ---
+  duration_ms: 0.362385
+  type: 'test'
+  ...
+# Subtest: reject unsafe numeric chainId before backend signing
+ok 7 - reject unsafe numeric chainId before backend signing
+  ---
+  duration_ms: 0.296789
+  type: 'test'
+  ...
+# Subtest: reject negative chainId before backend signing
+ok 8 - reject negative chainId before backend signing
+  ---
+  duration_ms: 0.293133
+  type: 'test'
+  ...
+# Subtest: reject oversized chainId before backend signing
+ok 9 - reject oversized chainId before backend signing
+  ---
+  duration_ms: 0.544885
+  type: 'test'
+  ...
+# Subtest: reject invalid salt before backend signing
+ok 10 - reject invalid salt before backend signing
+  ---
+  duration_ms: 0.720504
+  type: 'test'
+  ...
+# Subtest: reject malformed type field before backend signing
+ok 11 - reject malformed type field before backend signing
+  ---
+  duration_ms: 0.326282
+  type: 'test'
+  ...
+# Subtest: reject non-struct message before backend signing
+ok 12 - reject non-struct message before backend signing
+  ---
+  duration_ms: 0.968316
+  type: 'test'
+  ...
+# Subtest: detaches nested message and readonly types before async calls
+ok 13 - detaches nested message and readonly types before async calls
+  ---
+  duration_ms: 11.527456
+  type: 'test'
+  ...
+# Subtest: rotation before signing rejects and a fresh projection uses the new account
+ok 14 - rotation before signing rejects and a fresh projection uses the new account
+  ---
+  duration_ms: 9.663093
+  type: 'test'
+  ...
+# Subtest: rotation during signing prevents returning a signature under the old snapshot
+ok 15 - rotation during signing prevents returning a signature under the old snapshot
+  ---
+  duration_ms: 2.606821
+  type: 'test'
+  ...
+# Subtest: address lookup and signing errors preserve original error identity
+ok 16 - address lookup and signing errors preserve original error identity
+  ---
+  duration_ms: 1.948828
+  type: 'test'
+  ...
+# Subtest: malformed address and non-byte-hex signature are rejected
+ok 17 - malformed address and non-byte-hex signature are rejected
+  ---
+  duration_ms: 1.588366
+  type: 'test'
+  ...
+# Subtest: official x402 exact client builds an EIP-3009 payload through the common core
+ok 18 - official x402 exact client builds an EIP-3009 payload through the common core
+  ---
+  duration_ms: 10.678242
+  type: 'test'
+  ...
+# Subtest: community Hyperliquid SDK signs a standard testnet L1 action through the same core
+ok 19 - community Hyperliquid SDK signs a standard testnet L1 action through the same core
+  ---
+  duration_ms: 11.221805
+  type: 'test'
+  ...
+# Subtest: Morpho Blue authorization and Permit2 requirement signing share the core via viem
+ok 20 - Morpho Blue authorization and Permit2 requirement signing share the core via viem
+  ---
+  duration_ms: 73.850279
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1713.814817
+RESULT: PASS; strict compiler check + 20 Node tests; local offline evidence only
